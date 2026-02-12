@@ -74,7 +74,7 @@ In the list we found /usr/bin/menu a different thing which we can misuse
 
 **Anthem**
 
-nmap -sC -sV -Pn -vv <IP>
+nmap -sC -sV -Pn -vv IP
 
 -vv Shows extra details
 
