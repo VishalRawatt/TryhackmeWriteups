@@ -130,7 +130,7 @@ Let us find password using hydra
 
 We found password
 
-![enum result](2.png)
+![enum result](Assets/2.png)
 
 Let us do ssh login
 
@@ -150,7 +150,7 @@ Now we have linpeas inside /dev/shm in victim’s system
 
 We found a whole big RSA key let us copy this to a file
 
-![enum result](3.png)
+![enum result](Assets/3.png)
 
 Copy this file into a file with name rsa_key
 
@@ -160,7 +160,7 @@ First save this into a hash and then we will use ssh2john to crack it
 
 ```john --wordlist=rockyou.txt pass.hash```
 
-![enum result](4.png)]
+![enum result](Assets/4.png)]
 
 ```ssh -i /home/kay/.ssh/id_rsa kay@1<IP>```
 
@@ -170,7 +170,7 @@ We are into kay
 
 ```cat pass.bak```
 
-![enum result](5.png)
+![enum result](Assets/5.png)
 
 
 
@@ -232,7 +232,7 @@ Now we will dehash it (Copy hash and paste inside a file called md5.hash)
 
 password is: abcdefghijklmnopqrstuvwxyz
 
-![enum result](6.png)
+![enum result](Assets/6.png)
 
 
 Now we can directly use it but let’s have a fully operational shell first inside the victim’s machine
@@ -251,7 +251,6 @@ Now let’s
 
 ```cat key-2-of-3.txt```
 
-  
 
 #### Privilege Escalation
 
@@ -271,11 +270,9 @@ In victim’s machine, Navigate to /dev/shm
 
 ```./linpeas.sh```
 
-  
-
 ##### We can’t run linpeas
 
-![enum result](7.png)
+![enum result](Assets/7.png)
 
 For second find root user and for this we will run a command which will allow us to find any SUID binaries
 
@@ -292,10 +289,8 @@ https://gtfobins.github.io/gtfobins/nmap/#suid
 ```nmap --interactive```
 
 ```!sh```
-
 ##### Now we are logged in as root
 
-  
 
 ## Kenobi
 
@@ -317,7 +312,7 @@ We found ProFTPD version 1.3.5
 
 ```nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount 10.48.185.198```
 
-![enum result](8.png)
+![enum result](Assets/8.png)
 
 ```ncat 10.49.133.202 21```
 
@@ -389,7 +384,7 @@ After running linpeas we find an unknown binary
 
 ```nmap -sC -sV <IP>```
 
-![enum result](9.png)
+![enum result](Assets/9.png)
 
 We found at port 113 that we have a key here
 
@@ -399,7 +394,7 @@ If we go there we are automatically downloaded a file called key
 
 ##### Now we cannot do cat into it
 
-![enum result](10.png)
+![enum result](Assets/10.png)
 
 Let us run strings into it
 
@@ -407,20 +402,20 @@ The strings command in Linux is used to extract and display human-readable text 
 
 ```strings <file>```
 
-![enum result](11.png)
+![enum result](Assets/11.png)
 ##### Found a key
 
 Now our task is to find Charlie’s password
 
 We have an ftp port open and found it in our nmap scan and it has anonymous login allowed
 
-![enum result](12.png)
+![enum result](Assets/12.png)
 
 ```ftp <ip>```
 
 We did ftp login using credentials anonymous:anonymous
 
-![enum result](13.png)
+![enum result](Assets/13.png)
 
 Now get this file into your system using
 
@@ -436,7 +431,7 @@ We got our file
 
 It is in b64.txt which is base64 format if we look closely
 
-![enum result](14.png)
+![enum result](Assets/14.png)
 
 ```base64 -d b64.txt > decode.txt```
 
@@ -444,7 +439,7 @@ Now let’s see this file
 
 We find Charlie’s password but its non-readable
 
-![enum result](15.png)
+![enum result](Assets/15.png)
 
 Let us decode it using john and choosing rockyou.txt directory for it
 
@@ -472,7 +467,7 @@ hashcat -m <hash_type> -a <attack_mode> <hash_file> <word_list>
 
 | WPA/WPA2 |    22000 |
 
-![enum result](16.png)
+![enum result](Assets/16.png)
 
 We found password as cn7824
 
@@ -514,11 +509,11 @@ Save this file inside ur system
 
 ```cat /home/charlie/user.txt```
 
-![enum result](17.png)
+![enum result](Assets/17.png)
 
 ```sudo -l```
 
-![enum result](18.png)
+![enum result](Assets/18.png)
 
 We found that we can go root now
 
@@ -534,7 +529,7 @@ We are root now
 
 If we do ls we found 2 files
 
-![enum result](19.png)
+![enum result](Assets/19.png)
 Run root.py
 
 ```python root.py```
@@ -547,7 +542,7 @@ Run root.py
 
 ```gobuster dir -u <URL> -w <wordlist>```
 
-![enum result](20.png)
+![enum result](Assets/20.png)
 
 We can try ftp login
 
@@ -557,17 +552,17 @@ We found /assets directory lets look it up
 
 Found a file called style.css
 
-![enum result](21.png)
+![enum result](Assets/21.png)
 
 It has redirected us again to the rick roll meme
 
 ##### Now open burp suite and intercept the /sup3r_s3cr3t_f14g.php request
 
-![enum result](22.png)
+![enum result](Assets/22.png)
 
 Found this
 
-![enum result](23.png)
+![enum result](Assets/23.png)
 
 While going to this link I found an image
 
