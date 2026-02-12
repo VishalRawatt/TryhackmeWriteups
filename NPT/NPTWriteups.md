@@ -118,7 +118,7 @@ Use password as anonymous
 
 Here we will find our user
 
-![enum result](1.png)
+![enum result](Assets/1.png)
 
 Now we will try to brute force passwords using
 
