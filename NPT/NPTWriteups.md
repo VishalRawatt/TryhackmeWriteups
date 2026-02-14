@@ -588,21 +588,14 @@ hashcat -m 1800 -a 0 charlie_hash_file rockyou.txt
 
   
 
-| Hash  | Mode |
-
-| :-----: | :----: |
-
-| MD5   | 0 |
-
-| SHA1  | 100 |
-
-| SHA256|   1400 |
-
-| NTLM  | (Windows) 1000 |
-
-| bcrypt |  3200 |
-
-| WPA/WPA2 |    22000 |
+| Hash Type      | Mode  |
+| -------------- | ----- |
+| MD5            | 0     |
+| SHA1           | 100   |
+| SHA256         | 1400  |
+| NTLM (Windows) | 1000  |
+| bcrypt         | 3200  |
+| WPA/WPA2       | 22000 |
 
 ![enum result](Assets/16.png)
 
