@@ -1301,8 +1301,33 @@ We found it is using Gitea version 1.13.0
 
 Let us find a way to bypass this 2FA
 
+Now while doing this room, I deleted the table called two-factor responsible for 2FA but still it didnt work, I also created another user, gave it admin permission but still wasn't able to go to admin panel, so we will try second approach using burp suite
 
+Turn on Burp suite intercept and fireup the foxyproxy with it
 
+In our machine do this
+
+```
+curl http://dylan:Labr4d0rs4L1f3@127.0.0.1:6789 -x http://127.0.0.1:8080
+```
+
+Now if we go to intercept we found a get request to 127.0.0.1:6789 which has an auth token with it
+
+![enum result](68.png)
+
+Right Click --> Request in Browser --> In Current session
+
+Copy it, open the browser, turn off foxyproxy and paste it in the browser
+
+We are in dylan's page
+
+![enum result](69.png)
+
+Now do one more thing fast
+
+Go to proxy settings --> Match and replace --> In replace add Authorization: Basic (token)
+
+![enum result](70.png)
 
 
 
