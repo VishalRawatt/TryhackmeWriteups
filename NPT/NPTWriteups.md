@@ -888,13 +888,13 @@ We found a file
 
 We found something which we can’t decode and its called BrainFuck
 
-![enum result](25.png)
+!![enum result](Assets/25.png)
 
 For this we will need beef
 
 ```beef <filename>```
 
-![enum result](26.png)
+![enum result](Assets/26.png)
 
 Now do an ssh login
 
@@ -904,7 +904,7 @@ find / -name user.txt 2>/dev/null
 
 ```cat <path>```
 
-![enum result](27.png)
+![enum result](Assets/27.png)
 
 We cannot enter into the file
 
