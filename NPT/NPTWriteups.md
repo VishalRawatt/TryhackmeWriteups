@@ -1707,8 +1707,17 @@ john book.hash --wordlist=rockyou.txt
 
 ![enum result](Assets/59.png)
 
-We got our password urieljames
+We got our password 
 
+```
+urieljames
+```
+
+```
+ssh -i id_rsa barry@ip
+```
+
+![enum result](Assets/98.png)
 
 
 ## 11. Game Server
