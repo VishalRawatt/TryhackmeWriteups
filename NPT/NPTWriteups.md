@@ -1163,7 +1163,7 @@ Now cat dylan's user.txt file
 
 #### Privilege Escalation - Method -1
 
-There will be two methods we will try first the Pwncat one
+There will be two methods we will try first the PwnKit one
 
 First we need to get Linus Privilege escalation tool into the victim's machine
 
@@ -1331,7 +1331,7 @@ Go to proxy settings --> Match and replace --> In replace add Authorization: Bas
 
 We get this Site Administration
 
-![[Pasted image 20260215220051.png]]
+![[71.png]]
 
 In dylan's repo, Click on Settings -> Git hooks
 
@@ -1343,7 +1343,7 @@ We will add a bash reverse shell and run this to get a reverse shell access
 https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
 ```
 
-![[Pasted image 20260215222204.png]]
+![[73.png]]
 
 After !/bin/sh add
 
@@ -1373,17 +1373,17 @@ cd Test-Repo
 ls -la
 ```
 
-![[Pasted image 20260215222743.png]]
+![[74.png]]
 
 Now we will update README.md file, push our update to have our reverse shell access
 
-![[Pasted image 20260215223324.png]]
+![[76.png]]
 
-![[Pasted image 20260215223310.png]]
+![[75.png]]
 
-![[Pasted image 20260215223414.png]]
+![[77.png]]
 
-![[Pasted image 20260215223438.png]]
+![[78.png]]
 
 After this we get our reverse shell 
 
@@ -1410,6 +1410,23 @@ sudo su
 Now we are root
 
 ## 9. BookStore
+
+```
+nmap -F <IP>
+```
+
+```
+nmap -p22,80,5000 -sC -sV <IP>
+```
+
+I found a weird port 5000 running some python version
+
+![[Pasted image 20260217210341.png]]
+
+
+
+
+
 
 
 
