@@ -77,6 +77,12 @@
 **Link:** [https://tryhackme.com/room/gamingserver](https://tryhackme.com/room/gamingserver)  
 ###### 👉 Special for **strong enumeration discipline** and spotting small misconfigurations.
 
+### 12) Retro
+
+**Link:** [https://tryhackme.com/room/retro](https://tryhackme.com/room/retro)
+
+###### 👉 Famous for exploiting a **vulnerable web application (WordPress) and privilege escalation on Windows**. Great beginner-friendly room to understand web attacks + basic Windows post-exploitation flow.
+
 
 ## 1. Ignite
 
