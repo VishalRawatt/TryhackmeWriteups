@@ -912,11 +912,11 @@ We have another user named gwendoline
 
 Now we do have a clue
 
-![enum result](28.png)
+![enum result](Assets/28.png)
 
 ```find / -name s3cr3t 2>/dev/null```
 
-![enum result](29.png)
+![enum result](Assets/29.png)
 
 It is a directory
 
@@ -926,16 +926,16 @@ It is a directory
 
 ```cat ./<filename>```
 
-![[enum result](30.png)
+![enum result](Assets/30.png)
 ##### We found Gwendoline password
 
 ```su gwendoline```
 
-![enum result](31.png)
+![enum result](Assets/31.png)
 
 ```sudo -l```
 
-![enum result](32.png)
+![enum result](Assets/32.png)
 
 We found no password login at /usr/bin/vi which we also found in our previous room Chocolate factory
 
@@ -943,7 +943,7 @@ Let us look in gtfobins
 
 https://gtfobins.org/gtfobins/vim/
 
-![enum result](33.png)
+![enum result](Assets/33.png)
 
 Here if we use gtfobins directly we wont get access
 
