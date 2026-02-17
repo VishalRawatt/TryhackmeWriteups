@@ -1569,7 +1569,7 @@ Now if we go to js folder inside custom, we found a backup file called users.bak
 file users.bak
 ```
 
-![enum result](50.png)
+![enum result](Assets/50.png)
 
 We found our database being SQLite
 
@@ -1583,7 +1583,7 @@ Now a tab opens which shows us that we have credentials in it
 
 Click on Browse Data tab and we got our admin credentials
 
-![enum result](51.png)
+![enum result](Assets/51.png)
 
 The password is in hash format
 
@@ -1593,7 +1593,7 @@ Let us find its hash type
 hash-identifier 1868e36a6d2b17d4c2745f1659433a54d4bc5f4b
 ```
 
-![enum result](52.png)
+![enum result](Assets/52.png)
 
 We got our hash as SHA-1
 
@@ -1613,7 +1613,7 @@ sudo rm ~/.john/john.pot
 john file.hash --wordlist=rockyou.txt --format=RAW-SHA1
 ```
 
-![enum result](53.png)
+![enum result](Assets/53.png)
 
 We got our password bulldog19
 
@@ -1621,11 +1621,11 @@ We have a port 8765 open which has a login page so let us use these credentials
 
 We are in our admin panel now
 
-![enum result](54.png)
+![enum result](Assets/54.png)
 
 Now I didnt find it useful but I did found somethings in page soure
 
-![enum result](55.png)
+![enum result](Assets/55.png)
 
 I got a username barry and a path to another .bak file
 
@@ -1641,7 +1641,7 @@ I got another file
 file dontforget.bak
 ```
 
-![enum result](56.png)
+![enum result](Assets/56.png)
 
 Now this one is an XML file
 
@@ -1649,7 +1649,7 @@ Now this one is an XML file
 subl dontforget.bak
 ```
 
-![enum result](57.png)
+![enum result](Assets/57.png)
 
 Copy whole xml code and put it inside the comment box and we found that we can do XXE in this
 
@@ -1673,7 +1673,7 @@ This into our XML code
 
 If we run this and we get our etc/passwd file then we can get rsa file of our user barry too
 
-![enum result](58.png)
+![enum result](Assets/58.png)
 
 We got our file now make some changes in DOCTYPE
 
@@ -1705,7 +1705,7 @@ ssh2john id_rsa > book.hash
 john book.hash --wordlist=rockyou.txt
 ```
 
-![enum result](59.png)
+![enum result](Assets/59.png)
 
 We got our password urieljames
 
