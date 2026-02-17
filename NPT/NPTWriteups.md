@@ -870,7 +870,7 @@ Found nothing so I did
 
 We found FTP username and a dictionary
 
-![enum result](24.png)
+![enum result](Assets/24.png)
 
 Save all passwords in a file and we will brute force using hydra
 
@@ -888,7 +888,7 @@ We found a file
 
 We found something which we can’t decode and its called BrainFuck
 
-!![enum result](Assets/25.png)
+![enum result](Assets/25.png)
 
 For this we will need beef
 
