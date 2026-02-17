@@ -1231,7 +1231,7 @@ whoami
 cat /root/root.txt
 ```
 
-![enum result](67.png)
+![enum result](Assets/67.png)
 
 #### Privilege Escalation - Method -2
 
