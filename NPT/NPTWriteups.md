@@ -963,7 +963,7 @@ Locate root flag
 
 ##### Now we are root
 
-  ![enum result](34.png)
+  ![enum result](Assets/34.png)
 
 ## 8. Year of the Dog
 
