@@ -1125,7 +1125,7 @@ nc -lvnp 1234
 
 In browser change file name to revshell.php
 
-![enum result](46.png)
+![enum result](Assets/46.png)
 
 Now we are inside the machine
 
@@ -1139,7 +1139,7 @@ We have another file ```work_analysis ```
 
 If we cat in this file we can see something
 
-![enum result](47.png)
+![enum result](Assets/47.png)
 
 ```
 cat work_analysis | grep dylan
@@ -1157,7 +1157,7 @@ Let us try ssh login into this
 ssh dylan@IP
 ```
 
-![enum result](48.png)
+![enum result](Assets/48.png)
 
 Now cat dylan's user.txt file
 
@@ -1189,7 +1189,7 @@ chmod +x shell.sh
 
 Now we found a vulnerability and also that we can run Pwnkit
 
-![enum result](64.png)
+![enum result](Assets/64.png)
 
 Download PwnKit
 
@@ -1199,7 +1199,7 @@ git clone https://github.com/ly4k/PwnKit
 
 Now in Pwnkit we will send its PwnKit.sh file into victim's system
 
-![enum result](65.png)
+![enum result](Assets/65.png)
 
 ```
 python3 -m http.server 3030
@@ -1225,7 +1225,7 @@ It takes time but Now we are root here
 whoami
 ```
 
-![enum result](66.png)
+![enum result](Assets/66.png)
 
 ```
 cat /root/root.txt
@@ -1235,7 +1235,7 @@ cat /root/root.txt
 
 #### Privilege Escalation - Method -2
 
-![enum result](49.png)
+![enum result](Assets/49.png)
 
 Everything is okay in this we have to take a different path now
 
@@ -1249,7 +1249,7 @@ Here .gitconfig looks different, lets check it out
 cat .gitconfig
 ```
 
-![enum result](60.png)
+![enum result](Assets/60.png)
 
 Now we dont have much clue so we will find if there is anything running on the localhost system on any port
 
@@ -1263,7 +1263,7 @@ netstat -ant | grep -i listen
 
 - **`-t`** → show **TCP** connections only
 
-![enum result](61.png)
+![enum result](Assets/61.png)
 
 In them I find that 3000 port different as we saw rest all already
 
@@ -1279,7 +1279,7 @@ ssh dylan@10.48.134.10 -L 6789:127.0.0.1:3000
 
 In this we are forwarding traffic of port 127.0.0.1:3000 of dylan to our localhost port 6789 
 
-![enum result](62.png)
+![enum result](Assets/62.png)
 
 If we go to sign in, we will be needing password and email of dylan
 
@@ -1297,7 +1297,7 @@ Right Click -> View Page Source
 
 We found it is using Gitea version 1.13.0
 
-![enum result](63.png)
+![enum result](Assets/63.png)
 
 Let us find a way to bypass this 2FA
 
@@ -1313,7 +1313,7 @@ curl http://dylan:Labr4d0rs4L1f3@127.0.0.1:6789 -x http://127.0.0.1:8080
 
 Now if we go to intercept we found a get request to 127.0.0.1:6789 which has an auth token with it
 
-![enum result](68.png)
+![enum result](Assets/68.png)
 
 Right Click --> Request in Browser --> In Current session
 
@@ -1321,17 +1321,17 @@ Copy it, open the browser, turn off foxyproxy and paste it in the browser
 
 We are in dylan's page
 
-![enum result](69.png)
+![enum result](Assets/69.png)
 
 Now do one more thing fast
 
 Go to proxy settings --> Match and replace --> In replace add Authorization: Basic (token)
 
-![enum result](70.png)
+![enum result](Assets/70.png)
 
 We get this Site Administration
 
-![[71.png]]
+![enum result](Assets/71.png)
 
 In dylan's repo, Click on Settings -> Git hooks
 
@@ -1343,7 +1343,7 @@ We will add a bash reverse shell and run this to get a reverse shell access
 https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
 ```
 
-![[73.png]]
+![enum result](Assets/73.png)
 
 After !/bin/sh add
 
@@ -1373,15 +1373,15 @@ cd Test-Repo
 ls -la
 ```
 
-![[74.png]]
+![enum result](Assets/74.png)
 
 Now we will update README.md file, push our update to have our reverse shell access
 
-![[76.png]]
+![enum result](Assets/76.png)
 
-![[75.png]]
+![enum result](Assets/75.png)
 
-![[77.png]]
+![enum result](Assets/77.png)
 
 ![[78.png]]
 
@@ -1421,7 +1421,7 @@ nmap -p22,80,5000 -sC -sV <IP>
 
 I found a weird port 5000 running some python version
 
-![[Pasted image 20260217210341.png]]
+![enum result](Assets/79.png)
 
 
 
