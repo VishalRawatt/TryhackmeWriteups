@@ -1,4 +1,47 @@
 
+## Module-4 Enumeration
+
+### NetworkServices
+
+#### Task-3
+
+```
+nmap <IP> -vv
+```
+
+```
+enum4linux <IP> -a
+```
+
+
+#### Task-4
+
+We have username and share name provided in the question
+
+```
+smbclient //<IP>/secret -U suit -p 445
+```
+
+We are trying anonymous login here
+
+After enumerating we will find a share name called profiles
+
+![enum results](THM/Assets/1.png)
+
+```
+smbclient //<IP>/profiles -U Anonymous
+```
+
+
+
+
+
+
+
+
+
+
+
 ## **Module-4 Enumeration**
 
 ### **Kenobi**
