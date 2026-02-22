@@ -752,6 +752,7 @@ hashcat -m 1800 -a 0 charlie_hash_file rockyou.txt
 | MD5            | 0     |
 | SHA1           | 100   |
 | SHA256         | 1400  |
+| SHA512         | 1800  |
 | NTLM (Windows) | 1000  |
 | bcrypt         | 3200  |
 | WPA/WPA2       | 22000 |
