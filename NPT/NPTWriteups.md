@@ -693,6 +693,10 @@ strings <file>
 ```
 
 ![enum result](Assets/11.png)
+
+```
+b'-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY='
+```
 ##### Found a key
 
 Now our task is to find Charlie’s password
