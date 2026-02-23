@@ -83,7 +83,12 @@
 
 ###### 👉 Famous for exploiting a **vulnerable web application (WordPress) and privilege escalation on Windows**. Great beginner-friendly room to understand web attacks + basic Windows post-exploitation flow.
 
+### 13) Bounty Hacker (Homework)
 
+**Link:** https://tryhackme.com/room/bountyhacker
+
+###### 👉 Famous for **strong enumeration (FTP + SSH), credential discovery, and Linux privilege escalation**. Great beginner-friendly room to understand service enumeration → password cracking → SSH access → privesc flow.
+# WRITEUPS
 ## 1. Ignite
 
 ```
