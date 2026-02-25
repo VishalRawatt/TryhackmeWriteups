@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "THM/THMWriteups.md",
+                "file": "NPT/NPTWriteups.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "THMWriteups"
+              "title": "NPTWriteups"
             }
           }
         ]
@@ -186,8 +186,8 @@
   },
   "active": "9e5293b99a6b7191",
   "lastOpenFiles": [
-    "NPT/NPTWriteups.md",
     "THM/THMWriteups.md",
+    "NPT/NPTWriteups.md",
     "THM/Assets/8.png",
     "THM/Assets/7.png",
     "THM/Assets/6.png",
