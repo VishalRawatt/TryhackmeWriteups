@@ -1038,7 +1038,7 @@ Open burp suite and intercept the request of /
 Now in the cookie value add this
 
 ```
-or 1=1-- --
+' or 1=1-- --
 ```
 
 ![[36.png]]
