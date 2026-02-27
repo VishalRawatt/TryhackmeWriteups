@@ -25,14 +25,12 @@
             "id": "c38a6bcbbf6c7d6e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "NPT/NPTWriteups.md",
-                "mode": "source",
-                "source": false
+                "file": "THM/Assets/113.png"
               },
-              "icon": "lucide-file",
-              "title": "NPTWriteups"
+              "icon": "lucide-image",
+              "title": "113"
             }
           }
         ],
@@ -201,19 +199,19 @@
   },
   "active": "c38a6bcbbf6c7d6e",
   "lastOpenFiles": [
-    "THM/Assets/Pasted image 20260227171056.png",
-    "THM/Assets/Pasted image 20260227170700.png",
-    "THM/THMWriteups.md",
+    "THM/Assets/112.png",
+    "THM/Assets/111.png",
+    "THM/Assets/110.png",
+    "THM/Assets/109.png",
+    "THM/Assets/108.png",
+    "THM/Assets/107.png",
+    "THM/Assets/106.png",
+    "THM/Assets/105.png",
+    "THM/Assets/103.png",
+    "THM/Assets/104.png",
+    "THM/Assets/102.png",
     "NPT/NPTWriteups.md",
-    "THM/Assets/Pasted image 20260226114835.png",
-    "THM/Assets/10.png",
-    "THM/Assets/9.png",
-    "THM/Assets/1.png",
-    "THM/Assets/8.png",
-    "THM/Assets/7.png",
-    "THM/Assets/6.png",
-    "THM/Assets/5.png",
-    "THM/Assets/4.png",
+    "THM/THMWriteups.md",
     "Assets/Pasted.md",
     "THM/Assets",
     "THM",

