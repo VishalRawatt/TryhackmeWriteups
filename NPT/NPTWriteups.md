@@ -1817,7 +1817,7 @@ cd /root
 cat root.txt
 ```
 
-![enum result](114.png)
+![enum result](Assets/114.png)
 
 ## 11. Game Server
 
