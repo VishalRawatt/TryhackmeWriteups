@@ -1839,7 +1839,7 @@ We found 3 things in that which are dict1.lst -> dictionary, manifesto -> waste 
 
 We also found another file called /secret
 
-![enum result](NPT/Assets/110.png)
+![enum result](Assets/110.png)
 
 I found its rsa key so let us login, save name as id_rsa
 
