@@ -1817,7 +1817,7 @@ cd /root
 cat root.txt
 ```
 
-![enum result](NPT/Assets/101.png)
+![enum result](114.png)
 
 ## 11. Game Server
 
@@ -1916,7 +1916,7 @@ lxc image import alpine-v3.23-x86_64-20260225_2113.tar.gz --alias alpine
 ```
 
 ```
-lxc import image alpine-v3.23-x86_64-20260225_2113.tar.gz --alias alpine
+lxc image list
 ```
 
 ```

@@ -31,7 +31,7 @@ smbclient -L 10.48.181.56
 
 After enumerating we will find a share name called profiles
 
-![enum results](THM/Assets/101.png)
+![enum results](101.png)
 
 ```
 smbclient //10.48.181.56/profiles -U Anonymous
