@@ -109,7 +109,7 @@ telnet 10.48.148.51 8012
 nmap -F 10.49.136.137 
 ```
 
-![enum results](Assets/108.png)
+![enum results](../Assets/108.png)
 
 
 
