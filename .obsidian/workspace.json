@@ -27,16 +27,170 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NPT/Overpass.md",
+                "file": "NPT/0. NPT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Overpass"
+              "title": "0. NPT"
+            }
+          },
+          {
+            "id": "778d60b9aa0c7c67",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPT/12. Gaming Server.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "12. Gaming Server"
+            }
+          },
+          {
+            "id": "fb1c327565c7d88d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPT/1. Ignite.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "1. Ignite"
+            }
+          },
+          {
+            "id": "8f26ea8d61d5f646",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPT/2. Relevant.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2. Relevant"
+            }
+          },
+          {
+            "id": "18ad02512585fb10",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPT/5. Kenobi.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "5. Kenobi"
+            }
+          },
+          {
+            "id": "92c5713cf3fddb71",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPT/9. Year of the Rabbit.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "9. Year of the Rabbit"
+            }
+          },
+          {
+            "id": "b4963708d9f7ddd2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPT/11. Year of the Dog.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "11. Year of the Dog"
+            }
+          },
+          {
+            "id": "adb31279650fe2df",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPT/3. Basic Pentesting.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "3. Basic Pentesting"
+            }
+          },
+          {
+            "id": "7632bc0055422458",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPT/4. Mr. Robot.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "4. Mr. Robot"
+            }
+          },
+          {
+            "id": "6192c29126626a0b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPT/6. Chocolate Factory.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "6. Chocolate Factory"
+            }
+          },
+          {
+            "id": "3000c757778b3d06",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPT/8. BookStore.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "8. BookStore"
+            }
+          },
+          {
+            "id": "3ba33ff674830c2b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NPT/12. Gaming Server.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "12. Gaming Server"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 12
       }
     ],
     "direction": "vertical"
@@ -199,10 +353,21 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "da5424cde5d8f148",
+  "active": "3ba33ff674830c2b",
   "lastOpenFiles": [
-    "NPT/NPTWriteups.md",
-    "NPT/Overpass.md",
+    "NPT/11. Year of the Dog.md",
+    "NPT/0. NPT.md",
+    "NPT/10. Mustacchio.md",
+    "NPT/8. BookStore.md",
+    "NPT/9. Year of the Rabbit.md",
+    "NPT/6. Chocolate Factory.md",
+    "NPT/5. Kenobi.md",
+    "NPT/4. Mr. Robot.md",
+    "NPT/3. Basic Pentesting.md",
+    "NPT/1. Ignite.md",
+    "NPT/2. Relevant.md",
+    "NPT/12. Gaming Server.md",
+    "NPT/7. Overpass.md",
     "NPT/Assets/115.png",
     "THM/THMWriteups.md",
     "NPT/Assets/101.png",
