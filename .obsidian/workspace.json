@@ -181,12 +181,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NPT/0. Rooms.md",
+                "file": "NPT/7. Overpass.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "0. Rooms"
+              "title": "7. Overpass"
             }
           }
         ],
@@ -355,6 +355,12 @@
   },
   "active": "3ba33ff674830c2b",
   "lastOpenFiles": [
+    "NPT/Assets/Pasted image 20260303104616.png",
+    "NPT/Assets/Pasted image 20260303104317.png",
+    "NPT/Assets/Pasted image 20260303104307.png",
+    "NPT/Assets/Pasted image 20260303104134.png",
+    "NPT/Assets/116.png",
+    "NPT/0. Rooms.md",
     "NPT/1. Ignite.md",
     "NPT/2. Relevant.md",
     "NPT/3. Basic Pentesting.md",
@@ -367,7 +373,6 @@
     "NPT/10. Mustacchio.md",
     "NPT/11. Year of the Dog.md",
     "NPT/12. Gaming Server.md",
-    "NPT/0. Rooms.md",
     "NPT/Assets/115.png",
     "THM/THMWriteups.md",
     "NPT/Assets/101.png",
@@ -375,10 +380,6 @@
     "NPT/Assets/112.png",
     "NPT/Assets/111.png",
     "NPT/Assets/110.png",
-    "NPT/Assets/109.png",
-    "NPT/Assets/108.png",
-    "NPT/Assets/107.png",
-    "NPT/Assets/106.png",
     "Assets/Pasted.md",
     "THM/Assets",
     "THM",
