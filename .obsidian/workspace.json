@@ -167,12 +167,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NPT/7. Overpass.md",
+                "file": "NPT/0. Rooms.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "7. Overpass"
+              "title": "0. Rooms"
             }
           }
         ],
@@ -341,10 +341,10 @@
   },
   "active": "3000c757778b3d06",
   "lastOpenFiles": [
+    "NPT/7. Overpass.md",
     "NPT/Assets/125.png",
     "NPT/Assets/124.png",
     "NPT/Assets/Pasted image 20260305102727.png",
-    "NPT/7. Overpass.md",
     "NPT/Assets/123.png",
     "NPT/Assets/122.png",
     "NPT/3. Basic Pentesting.md",
@@ -356,7 +356,6 @@
     "NPT/12. Gaming Server.md",
     "THM/THMWriteups.md",
     "NPT/4. Mr. Robot.md",
-    "NPT/Assets/116.png",
     "NPT/0. Rooms.md",
     "NPT/1. Ignite.md",
     "NPT/2. Relevant.md",
