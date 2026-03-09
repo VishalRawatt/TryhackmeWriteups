@@ -181,12 +181,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "THM/Ice.md",
+                "file": "NPT/1. Ignite.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ice"
+              "title": "1. Ignite"
             }
           }
         ],
@@ -353,11 +353,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a754bc50f6665131",
+  "active": "37e79aaa019fdf32",
   "lastOpenFiles": [
-    "THM/THMWriteups.md",
-    "THM/Ice.md",
+    "NPT/10. Mustacchio.md",
+    "NPT/1. Ignite.md",
     "NPT/0. Rooms.md",
+    "NPT/12. Gaming Server.md",
+    "THM/Ice.md",
+    "THM/THMWriteups.md",
     "NPT/7. Overpass.md",
     "NPT/Assets/125.png",
     "NPT/Assets/124.png",
@@ -370,15 +373,12 @@
     "NPT/Assets/120.png",
     "NPT/Assets/118.png",
     "NPT/Assets/117.png",
-    "NPT/12. Gaming Server.md",
     "NPT/4. Mr. Robot.md",
-    "NPT/1. Ignite.md",
     "NPT/2. Relevant.md",
     "NPT/5. Kenobi.md",
     "NPT/6. Chocolate Factory.md",
     "NPT/8. BookStore.md",
     "NPT/9. Year of the Rabbit.md",
-    "NPT/10. Mustacchio.md",
     "NPT/11. Year of the Dog.md",
     "Assets/Pasted.md",
     "THM/Assets",
