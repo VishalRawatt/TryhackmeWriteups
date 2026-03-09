@@ -45,7 +45,7 @@ Now open this in your wireshark
 wireshark tcpdump.pcap
 ```
 
-![[Pasted image 20260309163901.png]]
+![enum result](../NPT/Assets/129.png)
 
 Now in admin@eve run
 
