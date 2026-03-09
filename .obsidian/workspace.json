@@ -181,12 +181,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NPT/1. Ignite.md",
+                "file": "THM/THMWriteups.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1. Ignite"
+              "title": "THMWriteups"
             }
           }
         ],
@@ -355,30 +355,34 @@
   },
   "active": "37e79aaa019fdf32",
   "lastOpenFiles": [
-    "NPT/10. Mustacchio.md",
+    "THM/Brooklyn99.md",
+    "THM/THMWriteups.md",
+    "THM/RootMe.md",
+    "THM/Anthem.md",
+    "NPT/5. Kenobi.md",
+    "THM/Network Services.md",
+    "THM/Ice.md",
+    "NPT/9. Year of the Rabbit.md",
+    "NPT/3. Basic Pentesting.md",
+    "NPT/2. Relevant.md",
     "NPT/1. Ignite.md",
+    "NPT/10. Mustacchio.md",
     "NPT/0. Rooms.md",
     "NPT/12. Gaming Server.md",
-    "THM/Ice.md",
-    "THM/THMWriteups.md",
     "NPT/7. Overpass.md",
     "NPT/Assets/125.png",
     "NPT/Assets/124.png",
     "NPT/Assets/Pasted image 20260305102727.png",
     "NPT/Assets/123.png",
     "NPT/Assets/122.png",
-    "NPT/3. Basic Pentesting.md",
     "NPT/Assets/121.png",
     "NPT/Assets/119.png",
     "NPT/Assets/120.png",
     "NPT/Assets/118.png",
     "NPT/Assets/117.png",
     "NPT/4. Mr. Robot.md",
-    "NPT/2. Relevant.md",
-    "NPT/5. Kenobi.md",
     "NPT/6. Chocolate Factory.md",
     "NPT/8. BookStore.md",
-    "NPT/9. Year of the Rabbit.md",
     "NPT/11. Year of the Dog.md",
     "Assets/Pasted.md",
     "THM/Assets",
@@ -397,7 +401,6 @@
     "NPTwriteups/NPT.md.md",
     "NPTwriteups",
     "Welcome.md",
-    "Untitled.canvas",
-    "2026-02-10.md"
+    "Untitled.canvas"
   ]
 }
