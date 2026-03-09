@@ -4,193 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "fc1cd5536b565bd4",
+        "id": "92b39ed2fcf47d17",
         "type": "tabs",
         "children": [
           {
-            "id": "c38a6bcbbf6c7d6e",
+            "id": "3cb1660c5ce171e1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NPT/NPTWriteups.md",
+                "file": "THM/Mod-9 Phishing - Merry Clickmas.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "NPTWriteups"
-            }
-          },
-          {
-            "id": "da5424cde5d8f148",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPT/0. Rooms.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "0. Rooms"
-            }
-          },
-          {
-            "id": "778d60b9aa0c7c67",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPT/12. Gaming Server.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "12. Gaming Server"
-            }
-          },
-          {
-            "id": "fb1c327565c7d88d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPT/1. Ignite.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "1. Ignite"
-            }
-          },
-          {
-            "id": "8f26ea8d61d5f646",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPT/2. Relevant.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2. Relevant"
-            }
-          },
-          {
-            "id": "18ad02512585fb10",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPT/5. Kenobi.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "5. Kenobi"
-            }
-          },
-          {
-            "id": "92c5713cf3fddb71",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPT/9. Year of the Rabbit.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "9. Year of the Rabbit"
-            }
-          },
-          {
-            "id": "b4963708d9f7ddd2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPT/11. Year of the Dog.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "11. Year of the Dog"
-            }
-          },
-          {
-            "id": "adb31279650fe2df",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPT/3. Basic Pentesting.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "3. Basic Pentesting"
-            }
-          },
-          {
-            "id": "7632bc0055422458",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPT/4. Mr. Robot.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "4. Mr. Robot"
-            }
-          },
-          {
-            "id": "6192c29126626a0b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NPT/6. Chocolate Factory.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "6. Chocolate Factory"
-            }
-          },
-          {
-            "id": "3000c757778b3d06",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "THM/THMWriteups.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "THMWriteups"
-            }
-          },
-          {
-            "id": "37e79aaa019fdf32",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "THM/THMWriteups.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "THMWriteups"
+              "title": "Mod-9 Phishing - Merry Clickmas"
             }
           }
-        ],
-        "currentTab": 12
+        ]
       }
     ],
     "direction": "vertical"
@@ -353,22 +184,32 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "37e79aaa019fdf32",
+  "active": "3cb1660c5ce171e1",
   "lastOpenFiles": [
-    "THM/Brooklyn99.md",
+    "THM/Mod-8 L2 Mac Flooding.md",
+    "THM/Mod-9 Phishing - Merry Clickmas.md",
+    "NPT/Assets/Pasted image 20260309163901.png",
+    "THM/Mod-4 Network Services.md",
+    "THM/Mod-7 Egg-xecutable.md",
+    "THM/Mod-6 Ice.md",
+    "THM/Mod-6 RootMe.md",
+    "THM/Mod-6 Brooklyn99.md",
     "THM/THMWriteups.md",
-    "THM/RootMe.md",
-    "THM/Anthem.md",
-    "NPT/5. Kenobi.md",
-    "THM/Network Services.md",
-    "THM/Ice.md",
-    "NPT/9. Year of the Rabbit.md",
+    "THM/Mod-6 Anthem.md",
+    "NPT/Assets/128.png",
+    "NPT/Assets/127.png",
+    "NPT/Assets/126.png",
+    "NPT/6. Chocolate Factory.md",
+    "NPT/4. Mr. Robot.md",
     "NPT/3. Basic Pentesting.md",
+    "NPT/11. Year of the Dog.md",
+    "NPT/9. Year of the Rabbit.md",
+    "NPT/5. Kenobi.md",
     "NPT/2. Relevant.md",
     "NPT/1. Ignite.md",
-    "NPT/10. Mustacchio.md",
-    "NPT/0. Rooms.md",
     "NPT/12. Gaming Server.md",
+    "NPT/0. Rooms.md",
+    "NPT/10. Mustacchio.md",
     "NPT/7. Overpass.md",
     "NPT/Assets/125.png",
     "NPT/Assets/124.png",
@@ -376,14 +217,7 @@
     "NPT/Assets/123.png",
     "NPT/Assets/122.png",
     "NPT/Assets/121.png",
-    "NPT/Assets/119.png",
-    "NPT/Assets/120.png",
-    "NPT/Assets/118.png",
-    "NPT/Assets/117.png",
-    "NPT/4. Mr. Robot.md",
-    "NPT/6. Chocolate Factory.md",
     "NPT/8. BookStore.md",
-    "NPT/11. Year of the Dog.md",
     "Assets/Pasted.md",
     "THM/Assets",
     "THM",
@@ -396,11 +230,8 @@
     "NPT",
     "TryhackmeWriteups",
     "NPT Writeup.md",
-    "TryhackmeWriteups/NPT.md",
     "TryhackmeWriteups",
-    "NPTwriteups/NPT.md.md",
     "NPTwriteups",
-    "Welcome.md",
     "Untitled.canvas"
   ]
 }
