@@ -53,7 +53,7 @@ Flying deer
 
 Press enter twice (no password)
 
-In SMTP email address: <target IP>
+In SMTP email address: target IP
 
 Port default to 25
 
@@ -65,7 +65,11 @@ n
 
 Email Subject: Alert your google credentials are leaked here
 
-Now in email body type: Dear user, your google credentials are leaked by the boat India server. Please follow the link to change your password from here at http://<Your IP>:8000
+Now in email body type: Dear user, your google credentials are leaked by the boat India server. Please follow the link to change your password from here at 
+
+```
+http://<Your IP>:8000
+```
 
 Next body line: It would be so nice of you to change these leaked credentials. Thank you for time.
 

