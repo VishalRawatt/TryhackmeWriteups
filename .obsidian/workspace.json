@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NPT/5. Kenobi.md",
+                "file": "NPT/6. Chocolate Factory.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "5. Kenobi"
+              "title": "6. Chocolate Factory"
             }
           }
         ],
@@ -201,6 +201,7 @@
   },
   "active": "07f361e312c63585",
   "lastOpenFiles": [
+    "NPT/5. Kenobi.md",
     "NPT/4. Mr. Robot.md",
     "NPT/3. Basic Pentesting.md",
     "NPT/2. Relevant.md",
@@ -237,7 +238,6 @@
     "Untitled",
     "NPT/6. Chocolate Factory.md",
     "NPT/9. Year of the Rabbit.md",
-    "NPT/5. Kenobi.md",
     "THM/Assets",
     "THM",
     "THM",
