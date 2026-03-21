@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NPT/5. Kenobi.md",
+                "file": "NPT/1. Ignite.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "5. Kenobi"
+              "title": "1. Ignite"
             }
           }
         ],
@@ -201,12 +201,12 @@
   },
   "active": "07f361e312c63585",
   "lastOpenFiles": [
+    "NPT/5. Kenobi.md",
     "NPT/10. Mustacchio.md",
     "THM/Mod-9 Phishing - Merry Clickmas.md",
     "THM/Mod-14 Vulnversity.md",
     "NPT/11. Year of the Dog.md",
     "NPT/6. Chocolate Factory.md",
-    "NPT/5. Kenobi.md",
     "NPT/4. Mr. Robot.md",
     "NPT/3. Basic Pentesting.md",
     "NPT/2. Relevant.md",
