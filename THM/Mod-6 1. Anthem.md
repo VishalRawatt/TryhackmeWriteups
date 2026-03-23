@@ -80,3 +80,5 @@ Unhide files in C folder -> edit permissions
  ```
  xfreerdp3 /v:10.64.144.3 /u:Administrator /p:ChangeMeBaby1MoreTime /cert:ignore +clipboard /dynamic-resolution
  ```
+
+We got out root flag
