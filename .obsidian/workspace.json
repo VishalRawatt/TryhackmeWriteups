@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CEH Extras.md",
+                "file": "CEH Extras/CEH Extras.md",
                 "mode": "source",
                 "source": false
               },
@@ -199,10 +199,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "07f361e312c63585",
+  "active": "a754bc50f6665131",
   "lastOpenFiles": [
+    "CEH Extras",
     "THM/Mod-6 3. RootMe.md",
-    "CEH Extras.md",
+    "CEH Extras/CEH Extras.md",
     "THM/CEH Rooms.md",
     "NPT/8. BookStore.md",
     "NPT/7. Overpass.md",
@@ -226,7 +227,6 @@
     "NPT/10. Mustacchio.md",
     "NPT/11. Year of the Dog.md",
     "NPT/4. Mr. Robot.md",
-    "NPT/3. Basic Pentesting.md",
     "NPT/Assets/152.png",
     "NPT/Assets/151.png",
     "NPT/Assets/150.png",
@@ -237,7 +237,6 @@
     "NPT/Assets/145.png",
     "NPT/Assets/144.png",
     "NPT/Assets/143.png",
-    "Untitled",
     "THM/Assets",
     "THM",
     "THM",
