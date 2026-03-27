@@ -45,7 +45,13 @@ Let’s go to /uploads folder as it is where we uploaded our file
 
 Click on reverse shell over there
 
-We got user access
+We got reverse shell 
+
+```
+python3 -c 'import pty;pty.spawn("/bin/bash)'
+```
+
+We have user access and a stable shell
 
 ```
 find / -name user.txt 2>/dev/null
