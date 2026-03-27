@@ -41,7 +41,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Payload Generator.md",
+                "file": "CEH Extras/Payload Generator.md",
                 "mode": "source",
                 "source": false
               },
@@ -213,10 +213,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3e7e1f8fae2ddb52",
+  "active": "a754bc50f6665131",
   "lastOpenFiles": [
     "CEH Extras/CEH Extra Topics.md",
-    "Payload Generator.md",
+    "CEH Extras/Payload Generator.md",
     "CEH Extras",
     "THM/Mod-6 3. RootMe.md",
     "THM/CEH Rooms.md",
