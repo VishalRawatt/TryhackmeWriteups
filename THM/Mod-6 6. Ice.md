@@ -63,9 +63,7 @@ We saw icecast2.exe was running in dark pc
 sysinfo
 ```
 
-```
-gets us system info
-```
+This gets us system information
 
 ```
 run post/multi/recon/local_exploit_suggester
