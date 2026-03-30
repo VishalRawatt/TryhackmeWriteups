@@ -23,7 +23,7 @@
 
 ---
 
-### 4) Mr Robot
+### 4) Mr. Robot
 
 **Link:** [https://tryhackme.com/room/mrrobot](https://tryhackme.com/room/mrrobot)  
 ######  👉 Popular for **directory brute force + wordlists + Linux privesc basics**.
@@ -77,19 +77,13 @@
 **Link:** [https://tryhackme.com/room/gamingserver](https://tryhackme.com/room/gamingserver)  
 ###### 👉 Special for **strong enumeration discipline** and spotting small misconfigurations.
 
-### 12) Retro
 
-**Link:** [https://tryhackme.com/room/retro](https://tryhackme.com/room/retro)
-
-###### 👉 Famous for exploiting a **vulnerable web application (WordPress) and privilege escalation on Windows**. Great beginner-friendly room to understand web attacks + basic Windows post-exploitation flow.
-
-
-### 13) Overpass
+### 12) Overpass
 
 **Link:** [https://tryhackme.com/room/overpass](https://tryhackme.com/room/overpass)
 
 👉 Famous for exploiting a **custom authentication system vulnerability to obtain SSH credentials**, followed by **privilege escalation on Linux using misconfigured cron jobs and writable scripts**. A great beginner-friendly room to understand credential harvesting, SSH access, and basic Linux privilege escalation
-### 14) Bounty Hacker (Homework)
+### 13) Bounty Hacker (Homework)
 
 **Link:** https://tryhackme.com/room/bountyhacker
 
