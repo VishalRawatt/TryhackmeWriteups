@@ -40,8 +40,12 @@ Ek fake website create krunga usme beef ka link dalke launch krunga port 80 p kr
 
 Pehle apache server port 80 p close kro
 
+```
 sudo systemctl stop apache
+```
 
 name the site as index.html and save the beef link in a script
 
+```
 dns.spoof on
+```
