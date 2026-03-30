@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CEH Extras/Wifi Attack.md",
+                "file": "CEH Extras/Payload Generator.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Wifi Attack"
+              "title": "Payload Generator"
             }
           }
         ],
@@ -257,17 +257,17 @@
   },
   "active": "29e8df073735a0cb",
   "lastOpenFiles": [
+    "CEH Extras/IRSSI.md",
+    "CEH Extras/Payload Generator.md",
+    "CEH Extras/Wifi Attack.md",
     "NPT/Assets/Pasted image 20260330235308.png",
     "NPT/Assets/Pasted image 20260330235255.png",
-    "Camphish.md",
-    "CEH Extras/Wifi Attack.md",
+    "CEH Extras/Camphish.md",
     "CEH Extras/Bluetooth Attack.md",
     "CEH Extras/Bettercap.md",
     "NPT/Assets/Pasted image 20260330234642.png",
-    "CEH Extras/IRSSI.md",
     "NPT/Assets/Pasted image 20260330221501.png",
     "NPT/Assets/Pasted image 20260330221454.png",
-    "CEH Extras/Payload Generator.md",
     "CEH Extras/CEH Extra Topics.md",
     "NPT/0 Rooms.md",
     "NPT/12 Gaming Server.md",
@@ -292,7 +292,6 @@
     "NPT/Assets/158.png",
     "NPT/Assets/157.png",
     "NPT/Assets/156.png",
-    "NPT/Assets/155.png",
     "CEH Extras",
     "THM/Assets",
     "THM",
