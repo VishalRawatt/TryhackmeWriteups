@@ -137,7 +137,7 @@ cd /usr/bin
 less /root/root.txt
 ```
 
-![enum result](Assets/145.png)
+![enum result](../NPT/Assets/145.png)
 
 ## Method-2
 
