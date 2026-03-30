@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "THM/Mod-7 Egg-xecutable.md",
+                "file": "THM/Mod-20 Encryption - Crypto 101.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Mod-7 Egg-xecutable"
+              "title": "Mod-20 Encryption - Crypto 101"
             }
           }
         ],
@@ -215,6 +215,13 @@
   },
   "active": "3e7e1f8fae2ddb52",
   "lastOpenFiles": [
+    "THM/Mod 15 3. Cod Caper.md",
+    "THM/Mod 15 2. SQLMap.md",
+    "THM/Mod 15 1. SQL Injection.md",
+    "THM/Mod 14 Vulnversity.md",
+    "THM/Mod 9 Phishing - Merry Clickmas.md",
+    "THM/Mod 8 L2 Mac Flooding.md",
+    "THM/Mod 7 Egg-xecutable.md",
     "THM/Mod 6 6. Ice.md",
     "THM/Mod 6 5. Blue.md",
     "THM/Mod 6 4. Anonymous.md",
@@ -222,7 +229,6 @@
     "THM/Mod 6 2. Brooklyn Nine Nine.md",
     "THM/Mod 4 Network Services.md",
     "THM/Mod 6 1. Anthem.md",
-    "THM/Mod-7 Egg-xecutable.md",
     "NPT/Assets/159.png",
     "NPT/Assets/160.png",
     "NPT/Assets/158.png",
@@ -230,8 +236,6 @@
     "NPT/Assets/156.png",
     "NPT/Assets/155.png",
     "NPT/9. Year of the Rabbit.md",
-    "THM/Mod-15 2. SQLMap.md",
-    "THM/Mod-15 1. SQL Injection.md",
     "NPT/4. Mr. Robot.md",
     "CEH Extras/Payload Generator.md",
     "NPT/7. Overpass.md",
@@ -242,10 +246,6 @@
     "THM/CEH Rooms.md",
     "NPT/8. BookStore.md",
     "NPT/5. Kenobi.md",
-    "THM/Mod-8 L2 Mac Flooding.md",
-    "THM/Mod-9 Phishing - Merry Clickmas.md",
-    "THM/Mod-14 Vulnversity.md",
-    "THM/Mod-15 3. Cod Caper.md",
     "NPT/6. Chocolate Factory.md",
     "NPT/2. Relevant.md",
     "NPT/1. Ignite.md",
