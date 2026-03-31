@@ -48,8 +48,9 @@ Click on reverse shell over there
 We got reverse shell 
 
 ```
-python3 -c 'import pty;pty.spawn("/bin/bash)'
+python3 -c 'import pty;pty.spawn("/bin/bash")'
 ```
+
 
 We have user access and a stable shell
 
