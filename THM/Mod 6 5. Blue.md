@@ -121,7 +121,7 @@ We find this spoolsv.exe
 ![enum result](../NPT/Assets/160.png)
 
 ```
-migrate <id of spoolsv.exe>
+migrate -N spoolsv.exe
 ```
 
 ```

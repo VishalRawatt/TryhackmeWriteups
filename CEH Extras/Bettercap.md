@@ -4,7 +4,7 @@
 net.probe on
 ```
 
-![[Pasted image 20260330234642.png]]
+![[163.png]]
 
 ```
 net.show

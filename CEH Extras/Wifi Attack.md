@@ -26,13 +26,13 @@ Now we will change it to monitor mode
 sudo airmon-ng start wlan0
 ```
 
-![[Pasted image 20260330221454.png]]
+![[161.png]]
 
 ```
 sudo airodump-ng wlan0
 ```
 
-![[Pasted image 20260330221501.png]]
+![[162.png]]
 
 Here we will attack in Winwalk-2g and channel is BSSID
 
@@ -78,11 +78,11 @@ cd airgeddon
 ```
 
 
-![[Pasted image 20260330235255.png]]
+![[164.png]]
 
 We will install every command
 
-![[Pasted image 20260330235308.png]]
+![[165.png]]
 
 Select wlan0 by typing
 
