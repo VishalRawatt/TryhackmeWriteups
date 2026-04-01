@@ -4,7 +4,7 @@
 net.probe on
 ```
 
-![[163.png]]
+![enum result](../NPT/Assets/163.png)
 
 ```
 net.show
