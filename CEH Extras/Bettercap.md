@@ -33,7 +33,6 @@ net.sniff off
 set dns.spoof.domains facebook.com
 ```
 
-
 Now we will perform DNS spoofing
 
 Ek fake website create krunga usme beef ka link dalke launch krunga port 80 p kruki practically usi p ho skta hai
