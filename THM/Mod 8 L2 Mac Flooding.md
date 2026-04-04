@@ -7,7 +7,9 @@ ssh -o StrictHostKeyChecking=accept-new admin@MACHINE_IP
 
 password is Layer2
 
+```
 show ip addr eth1
+```
 
 ```
 sudo nmap -sN 192.168.12.66/24
